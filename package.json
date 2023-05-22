@@ -1,12 +1,18 @@
 {
-  "private": true,
+  "name": "rpribau-homepage",
+  "version": "1.0.0",
+  "description": "Rob's Webpage",
   "scripts": {
-    "dev": "next",
+    "dev": "next dev -H 0.0.0.0",
     "build": "next build",
-    "start": "next start",
-    "type-check": "tsc"
+    "prettier" : "prettier --write .",
+    "lint": "next lint"
   },
+  "keywords": [],
+  "author": "Roberto Priego Bautista<hi@rpribau.com>",
+  "license": "MIT",
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.19",
     "@chakra-ui/react": "^2.6.1",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
