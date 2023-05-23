@@ -18,7 +18,6 @@ padding: 10px;
 
 &:hover svg {
     transform: rotate(20deg);
-    transform: rotate(20deg);
 }
 `
 const Logo = () => {
