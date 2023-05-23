@@ -1,5 +1,5 @@
 import {forwardRef} from 'react'
-import Logo from 'components/logo.js'
+import Logo from './logo'
 import NextLink from 'next/link'
 import {
     Container,
@@ -43,25 +43,10 @@ const Navbar = (props) => {
         bg = {useColorModeValue('#ffffff40', '#20202380')}
         style={{backdropFilter: 'blur(10px)'}}
         zIndex = {1}
-        {...props}
-    >
+        {...props}>
         
-        <Container 
-            display="flex" 
-            p={2} 
-            maxW = "container.md" 
-            wrap="wrap" 
-            align="center" 
-            justify="space-between"
-        >
-            <Flex align="center" mr={5}>
-        <Heading as="h1" size="lg" letterSpacing={'tighter'}>
-            <Logo />    
-            
-          </Heading>
-        </Flex>
-       </Container>
-    </Box>
+            Navbar
+            </Box>
     )
 }
 
