@@ -1,6 +1,6 @@
 # My Blog
 
-This is one hobby that I really wanted to develop mostly because I'm not good at communicate with a lot of people. Most of the times I prefer to stay quiet and don't say my opinion or even trying to let people know about me. I'm not used to use Javascript (Js) nor Next.js or even using an UI tool such as Chakra UI, the main magic behind this webpage.
+This is one hobby that I really wanted to develop mostly because I'm not good at communicate with a lot of people. Most of the times I prefer to stay quiet and don't say my opinion or even trying not to let people know about me. I'm not used to use Javascript (Js) nor Next.js or even using an UI tool such as Chakra UI, the main magic behind this webpage.
 
 ## Tools used
 
