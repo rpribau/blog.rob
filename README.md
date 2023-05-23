@@ -1,12 +1,18 @@
-# TypeScript Next.js example
+# My Blog
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
+This is one hobby that I really wanted to develop. I'm not used to use Js or even using an UI tool such as Chakra UI, the main magic behind this webpage.
 
-## Deploy your own
+## Tools used
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-typescript)
+The main tools I'm using are:
+  - VS Code
+  - Next.js
+  - Chakra UI
+  - Vercel (deploy website)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript&project-name=with-typescript&repository-name=with-typescript)
+And the main libraries used:
+  - React Icons
+  - Chakra-Icons
 
 ## How to use it?
 
