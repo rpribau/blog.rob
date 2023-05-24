@@ -124,7 +124,7 @@ const Navbar = props => {
           </Heading>
         </Flex>
 
-        <Stack
+        {/* <Stack
             direction={{base: 'column', md: 'row'}}
             display={{base: 'none', md: 'flex'}}
             width={{base: 'full', md: 'auto'}}
@@ -151,7 +151,7 @@ const Navbar = props => {
                 <IoLogoGithub />
                 GitHub
             </LinkItem>
-        </Stack>
+        </Stack> */}
       </Stack>
         
       </Container>
