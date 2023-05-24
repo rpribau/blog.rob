@@ -16,9 +16,6 @@ padding: 10px;
     transition: 200ms ease;
 }
 
-&:hover svg {
-    transform: rotate(20deg);
-}
 `
 const Logo = () => {
     return (

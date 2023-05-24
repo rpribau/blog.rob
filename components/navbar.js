@@ -1,6 +1,7 @@
 import {forwardRef} from 'react'
 import Logo from './logo'
 import NextLink from 'next/link'
+import {useState} from 'react'
 import {
     Container,
     Box,
@@ -14,6 +15,7 @@ import {
     MenuButton,
     IconButton,
     useColorModeValue,
+    Icon,
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import {ThemeToggleButton} from './theme-toggle-button.js'
@@ -45,6 +47,11 @@ const MenuLink = forwardRef((props, ref) => (
 
 const Navbar = props => {
     const {path} = props
+    const [isOpen, setIsOpen] = useState(false)
+
+    const handleMenuToggle = () =>{
+      setIsOpen(!isOpen)
+    };
     
     return(
         <Box
@@ -65,9 +72,54 @@ const Navbar = props => {
             align="center" 
             justify="space-between"
         >
+          <Flex align="center" mr={5}>
+            <Heading as="h1" size="lg" letterSpacing={'tighter'}>
+            <Logo />
+          </Heading>
+        </Flex>
+
+          <IconButton
+            display={{base: 'flex', md: 'none'}}
+            onClick={handleMenuToggle}
+            icon={<HamburgerIcon />}
+            alignItems="center"
+            variant="ghost"
+            size="md"
+            aria-label="Toggle Menu"
+          />
+
+          <Stack
+            direction={{base: 'column', md: 'row'}}
+            display={{base: isOpen ? 'flex' : 'none', md: 'flex'}}
+            width={{base: 'full', md: 'auto'}}
+            alignItems="center"
+            flexGrow={1}
+            mt={{base: 4, md: 0}}
+          >
+            <LinkItem href="/about" path={path}>
+                About
+            </LinkItem>
+            <LinkItem href="/posts" path={path}>
+                Posts
+            </LinkItem>
+            <LinkItem href="/works">Achievements</LinkItem>
+            <LinkItem
+                targer="_blank"
+                href="https://github.com/rpribau"
+                path={path}
+                display="inline-flex"
+                alignItems="center"
+                style={{gap: 4}}
+                pl={2}
+            >
+                <IoLogoGithub />
+                GitHub
+            </LinkItem>
+            
+
             <Flex align="center" mr={5}>
-        <Heading as="h1" size="lg" letterSpacing={'tighter'}>
-            <Logo />    
+            <Heading as="h1" size="lg" letterSpacing={'tighter'}>
+               
             
           </Heading>
         </Flex>
@@ -100,8 +152,7 @@ const Navbar = props => {
                 GitHub
             </LinkItem>
         </Stack>
-        
-
+      </Stack>
         
       </Container>
     </Box>
