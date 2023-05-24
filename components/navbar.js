@@ -1,7 +1,7 @@
 import {forwardRef} from 'react'
 import Logo from './logo'
 import NextLink from 'next/link'
-import {useState} from 'react'
+import {useState, useRef, useEffect} from 'react'
 import {
     Container,
     Box,
@@ -48,10 +48,24 @@ const MenuLink = forwardRef((props, ref) => (
 const Navbar = props => {
     const {path} = props
     const [isOpen, setIsOpen] = useState(false)
+    const menuRef = useRef(null)
 
     const handleMenuToggle = () =>{
       setIsOpen(!isOpen)
     };
+
+    const handleClickOutside = event => {
+      if (menuRef.current && !menuRef.current.contains(event.target)){
+        setIsOpen(false)
+      }
+    };
+
+    useEffect(() => {
+      document.addEventListener('click', handleClickOutside);
+      return () => {
+        document.removeEventListener('click', handleClickOutside);
+      };
+    }, []);
     
     return(
         <Box
@@ -62,6 +76,7 @@ const Navbar = props => {
         style={{backdropFilter: 'blur(10px)'}}
         zIndex = {1}
         {...props}
+        ref={menuRef}
     >
         
         <Container 
@@ -82,19 +97,20 @@ const Navbar = props => {
             display={{base: 'flex', md: 'none'}}
             onClick={handleMenuToggle}
             icon={<HamburgerIcon />}
-            alignItems="center"
             variant="ghost"
             size="md"
             aria-label="Toggle Menu"
           />
 
           <Stack
+            
             direction={{base: 'column', md: 'row'}}
             display={{base: isOpen ? 'flex' : 'none', md: 'flex'}}
             width={{base: 'full', md: 'auto'}}
             alignItems="center"
             flexGrow={1}
             mt={{base: 4, md: 0}}
+            
           >
             <LinkItem href="/about" path={path}>
                 About
@@ -104,7 +120,7 @@ const Navbar = props => {
             </LinkItem>
             <LinkItem href="/works">Achievements</LinkItem>
             <LinkItem
-                targer="_blank"
+                target="_blank"
                 href="https://github.com/rpribau"
                 path={path}
                 display="inline-flex"
@@ -124,34 +140,6 @@ const Navbar = props => {
           </Heading>
         </Flex>
 
-        {/* <Stack
-            direction={{base: 'column', md: 'row'}}
-            display={{base: 'none', md: 'flex'}}
-            width={{base: 'full', md: 'auto'}}
-            alignItems="center"
-            flexGrow={1}
-            mt={{base: 4, md: 0}}
-        >
-            <LinkItem href="/about" path={path}>
-                About
-            </LinkItem>
-            <LinkItem href="/posts" path={path}>
-                Posts
-            </LinkItem>
-            <LinkItem href="/works">Achievements</LinkItem>
-            <LinkItem
-                targer="_blank"
-                href="https://github.com/rpribau"
-                path={path}
-                display="inline-flex"
-                alignItems="center"
-                style={{gap: 4}}
-                pl={2}
-            >
-                <IoLogoGithub />
-                GitHub
-            </LinkItem>
-        </Stack> */}
       </Stack>
         
       </Container>
