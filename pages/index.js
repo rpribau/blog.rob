@@ -34,6 +34,7 @@ const Page = () => {
             <UnderConstructionAlert />
           </Box>
           <CloseButton
+            color={"black"}
             position="absolute"
             right={2}
             top={2}
