@@ -71,52 +71,54 @@ const Navbar = (props) => {
       ref={menuRef}
     >
       <Container display="flex" p={2} maxW="container.md" wrap="wrap" align="center" justify="space-between">
-        <Flex align="center">
-          <Heading as="h1" size="lg" letterSpacing="tighter">
-            <Logo />
-          </Heading>
-        </Flex>
+        <Flex align="center" justify="space-between" w="100%">
+          <Flex align="center">
+            <Heading as="h1" size="lg" letterSpacing="tighter">
+              <Logo />
+            </Heading>
+          </Flex>
 
-        <Stack
-          direction={{ base: 'column', md: 'row' }}
-          display={{ base: isOpen ? 'flex' : 'none', md: 'flex' }}
-          width={{ base: 'full', md: 'auto' }}
-          alignItems="center"
-          flexGrow={1}
-          mt={{ base: 4, md: 0 }}
-          spacing={{ base: 2, md: 4 }}
-        >
-          <LinkItem href="/about" path={path}>
-            About
-          </LinkItem>
-          <LinkItem href="/posts" path={path}>
-            Posts
-          </LinkItem>
-          <LinkItem href="/works">Achievements</LinkItem>
-          <LinkItem
-            target="_blank"
-            href="https://github.com/rpribau"
-            path={path}
-            display="inline-flex"
+          <Stack
+            direction={{ base: 'column', md: 'row' }}
+            display={{ base: isOpen ? 'flex' : 'none', md: 'flex' }}
+            width={{ base: 'full', md: 'auto' }}
             alignItems="center"
-            style={{ gap: 4 }}
-            pl={2}
+            flexGrow={1}
+            mt={{ base: 4, md: 0 }}
+            spacing={{ base: 2, md: 4 }}
           >
-            <IoLogoGithub />
-            GitHub
-          </LinkItem>
-        </Stack>
+            <LinkItem href="/about" path={path}>
+              About
+            </LinkItem>
+            <LinkItem href="/posts" path={path}>
+              Posts
+            </LinkItem>
+            <LinkItem href="/works">Achievements</LinkItem>
+            <LinkItem
+              target="_blank"
+              href="https://github.com/rpribau"
+              path={path}
+              display="inline-flex"
+              alignItems="center"
+              style={{ gap: 4 }}
+              pl={2}
+            >
+              <IoLogoGithub />
+              GitHub
+            </LinkItem>
+          </Stack>
 
-        <Flex align="center">
-          <ThemeToggleButton />
-          <IconButton
-            display={{ base: 'flex', md: 'none' }}
-            onClick={handleMenuToggle}
-            icon={<HamburgerIcon />}
-            variant="ghost"
-            size="md"
-            aria-label="Toggle Menu"
-          />
+          <Flex align="center">
+            <ThemeToggleButton />
+            <IconButton
+              display={{ base: 'flex', md: 'none' }}
+              onClick={handleMenuToggle}
+              icon={<HamburgerIcon />}
+              variant="ghost"
+              size="md"
+              aria-label="Toggle Menu"
+            />
+          </Flex>
         </Flex>
       </Container>
     </Box>
