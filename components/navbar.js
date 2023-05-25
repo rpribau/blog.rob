@@ -100,7 +100,7 @@ const Navbar = (props) => {
               path={path}
               display="inline-flex"
               alignItems="center"
-              style={{ gap: 4 }}
+              style={{ gap: 2 }}
               pl={2}
             >
               <IoLogoGithub />
