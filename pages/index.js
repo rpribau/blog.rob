@@ -31,7 +31,7 @@ const Page = () => {
           maxWidth="100px" 
           display="inline-block" 
           borderRadius="full" 
-          src="/images/roberto.jpg" 
+          src="https://i.imgur.com/r5TFEGw.jpg" 
           alt="Profile Image"/>
 
         </Box>
