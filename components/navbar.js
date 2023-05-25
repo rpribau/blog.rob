@@ -16,6 +16,7 @@ import {
     IconButton,
     useColorModeValue,
     Icon,
+    Th,
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import {ThemeToggleButton} from './theme-toggle-button.js'
@@ -92,6 +93,7 @@ const Navbar = props => {
             <Logo />
           </Heading>
         </Flex>
+
 
           <IconButton
             display={{base: 'flex', md: 'none'}}

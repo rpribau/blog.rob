@@ -2,6 +2,9 @@ import { Container, Box, Heading } from "@chakra-ui/react"
 const Page = () => {
     return (
     <Container>
+        <h>
+        ‎
+        </h>
         <Box borderRadius="lg" bg ="azure" p={3} mb={5} align="center">
             Hello, I&apos;m a student at Tecnologico de Monterrey and I&apos;m currently studing B.S in Data Science and Mathematics.
         </Box>
