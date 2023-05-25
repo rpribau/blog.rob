@@ -10,8 +10,8 @@ const ThemeToggleButton = () => {
           colorScheme={useColorModeValue('purple', 'orange')}
           icon={useColorModeValue(<MoonIcon />, <SunIcon />)}
           onClick={toggleColorMode}
-        ></IconButton>
+        />
   )
 }
 
-export default ThemeToggleButton
+export {ThemeToggleButton};

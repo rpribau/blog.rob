@@ -143,7 +143,8 @@ const Navbar = props => {
         </Flex>
 
       </Stack>
-        
+      
+      <ThemeToggleButton />
       </Container>
     </Box>
   )
