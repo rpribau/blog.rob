@@ -1,6 +1,15 @@
-import { Container, Box, Heading, Image, useColorModeValue } from "@chakra-ui/react"
+import { 
+          Button, 
+          Container, 
+          Box, 
+          Heading, 
+          Image, 
+          useColorModeValue 
+} from "@chakra-ui/react"
 import Section from "../components/section"
 import Paragraph from "../components/paragraph"
+import { ChevronRightIcon } from "@chakra-ui/icons"
+import Link from "next/link"
 
 const Page = () => {
   return (
@@ -51,7 +60,19 @@ const Page = () => {
                  Engineering in Data Sciences and Mathematics focused mainly on artificial 
                  intelligence. At the moment I don't have any work experience, however as 
                  a FIRST ALUMNI I can say that teamwork is not something that bothers me at all.
-</Paragraph>
+      </Paragraph>
+
+      <Box align="center" my={4}>
+          <Button
+            as={Link}
+            href="/about"
+            scroll={false}
+            rightIcon={<ChevronRightIcon />}
+            colorScheme="teal"
+          >
+            More About Me
+          </Button>
+        </Box>
 
       </Section>
     </Container>
