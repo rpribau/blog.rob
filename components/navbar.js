@@ -91,7 +91,7 @@ const Navbar = (props) => {
               About
             </LinkItem>
             <LinkItem href="/posts" path={path}>
-              Posts
+              Blog
             </LinkItem>
             <LinkItem href="/works">Achievements</LinkItem>
             <LinkItem
