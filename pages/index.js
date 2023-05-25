@@ -41,9 +41,7 @@ const Page = () => {
           />
         </Box>
       )}
-        <h>
-        ‎
-        </h>
+        
       <Box borderRadius="lg" bg={"azure"} p={3} mb={5} align="center" color="black">
         Hello, I&apos;m a student at Tecnologico de Monterrey based in Mexico!
       </Box>
