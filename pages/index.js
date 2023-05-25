@@ -1,4 +1,5 @@
 import { Container, Box, Heading, Image, useColorModeValue } from "@chakra-ui/react"
+import Section from "../components/section"
 
 const Page = () => {
   return (
@@ -32,10 +33,20 @@ const Page = () => {
           display="inline-block" 
           borderRadius="full" 
           src="https://i.imgur.com/r5TFEGw.jpg" 
-          alt="Profile Image"/>
-
+          alt="Profile Image"
+          />
         </Box>
       </Box>
+      <h>
+        ‎
+        </h>
+      <Section delay={0.1}>
+      <Heading as = "h3" variant = "section-title">
+        About me
+      </Heading>
+      <p>Paragraph</p>
+
+      </Section>
     </Container>
   )
 }
