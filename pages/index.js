@@ -3,17 +3,44 @@ import {
           Container, 
           Box, 
           Heading, 
-          Image, 
+          Image,
+          CloseButton,
+          AlertIcon, 
           useColorModeValue 
 } from "@chakra-ui/react"
 import Section from "../components/section"
 import Paragraph from "../components/paragraph"
 import { ChevronRightIcon } from "@chakra-ui/icons"
 import Link from "next/link"
+import { useState } from "react"
+import UnderConstructionAlert from "../components/underconstructionalert"
 
 const Page = () => {
-  return (
+  const [showNotification, setNotification]= useState(true);
+
+  const handleNotificationClose = () => {
+    setNotification(false);
+  };
+
+  return (  
+        
     <Container>
+      <h>
+        ‎
+        </h>
+        {showNotification && (
+        <Box p={4} bg="yellow.200" rounded="md" mb={4} position="relative">
+          <Box>
+            <UnderConstructionAlert />
+          </Box>
+          <CloseButton
+            position="absolute"
+            right={2}
+            top={2}
+            onClick={handleNotificationClose}
+          />
+        </Box>
+      )}
         <h>
         ‎
         </h>
@@ -56,7 +83,7 @@ const Page = () => {
       </Heading>
       <Paragraph>I'm an independent developer who tries to learn according to my 
                  needs or projects that I have in mind so that I can become a full-stack 
-                 developer in the near future. I’m currently based in Monterrey studying 
+                 developer in the near future. I'm currently based in Monterrey studying 
                  Engineering in Data Sciences and Mathematics focused mainly on artificial 
                  intelligence. At the moment I don't have any work experience, however as 
                  a FIRST ALUMNI I can say that teamwork is not something that bothers me at all.
@@ -76,6 +103,8 @@ const Page = () => {
 
       </Section>
     </Container>
+    
+    
   )
 }
 

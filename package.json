@@ -12,6 +12,7 @@
   "author": "Roberto Priego Bautista<hi@rpribau.com>",
   "license": "MIT",
   "dependencies": {
+    "@chakra-ui/alert": "^2.1.0",
     "@chakra-ui/icons": "^2.0.19",
     "@chakra-ui/react": "^2.6.1",
     "@emotion/react": "^11.11.0",
