@@ -1,5 +1,6 @@
 import { Container, Box, Heading, Image, useColorModeValue } from "@chakra-ui/react"
 import Section from "../components/section"
+import Paragraph from "../components/paragraph"
 
 const Page = () => {
   return (
@@ -8,7 +9,7 @@ const Page = () => {
         ‎
         </h>
       <Box borderRadius="lg" bg={"azure"} p={3} mb={5} align="center" color="black">
-        Hello, I&apos;m a student at Tecnologico de Monterrey and I&apos;m currently studying B.S in Data Science and Mathematics.
+        Hello, I&apos;m a student at Tecnologico de Monterrey based in Mexico!
       </Box>
 
       <Box display={{ md: 'flex' }}>
@@ -17,7 +18,7 @@ const Page = () => {
             Roberto Priego Bautista
           </Heading>
 
-          <p>@rpribau (Developer / Coding / FIRST Alumni)</p>
+          <p>@rpribau (Developer / STEM Apasionante / FIRST Alumni)</p>
         </Box>
         <Box 
         flexShrink = {0} 
@@ -42,9 +43,15 @@ const Page = () => {
         </h>
       <Section delay={0.1}>
       <Heading as = "h3" variant = "section-title">
-        About me
+        Work
       </Heading>
-      <p>Paragraph</p>
+      <Paragraph>I'm an independent developer who tries to learn according to my 
+                 needs or projects that I have in mind so that I can become a full-stack 
+                 developer in the near future. I’m currently based in Monterrey studying 
+                 Engineering in Data Sciences and Mathematics focused mainly on artificial 
+                 intelligence. At the moment I don't have any work experience, however as 
+                 a FIRST ALUMNI I can say that teamwork is not something that bothers me at all.
+</Paragraph>
 
       </Section>
     </Container>
