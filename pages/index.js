@@ -53,7 +53,7 @@ const Page = () => {
             Roberto Priego Bautista
           </Heading>
 
-          <p>@rpribau (Developer / STEM Apasionante / FIRST Alumni</p>
+          <p>@rpribau (Developer / STEM Apasionante / FIRST Alumni)</p>
         </Box>
         <Box 
         flexShrink = {0} 
