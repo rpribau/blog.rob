@@ -11,8 +11,14 @@ import {
   Flex,
   IconButton,
   useColorModeValue,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  AddIcon,
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
+import {HiTranslate} from 'react-icons/hi'
 import { ThemeToggleButton } from './theme-toggle-button.js'
 import { IoLogoGithub } from 'react-icons/io'
 
@@ -107,6 +113,25 @@ const Navbar = (props) => {
               GitHub
             </LinkItem>
           </Stack>
+
+          <Flex align="center">
+          <Menu>
+              <MenuButton
+                as={IconButton}
+                aria-label='Options'
+                icon={<HiTranslate />}
+                variant='outline'
+              />
+
+            <MenuList>
+                <MenuItem icon={<AddIcon />} command='⌘T'>
+                🇪🇸 Español
+                </MenuItem>
+                🇬🇧 Ingles
+            </MenuList>
+          </Menu>
+          
+        </Flex>
 
           <Flex align="center">
             <ThemeToggleButton />
