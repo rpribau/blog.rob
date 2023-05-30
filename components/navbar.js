@@ -16,11 +16,12 @@ import {
   MenuList,
   MenuItem,
   AddIcon,
+  Tr,
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
-import {HiTranslate} from 'react-icons/hi'
 import { ThemeToggleButton } from './theme-toggle-button.js'
 import { IoLogoGithub } from 'react-icons/io'
+import LanguageMenu from './translate-toggle-button.js'
 
 const LinkItem = ({ href, path, target, children, ...props }) => {
   const active = path === href
@@ -114,24 +115,6 @@ const Navbar = (props) => {
             </LinkItem>
           </Stack>
 
-          <Flex align="center">
-          <Menu>
-              <MenuButton
-                as={IconButton}
-                aria-label='Options'
-                icon={<HiTranslate />}
-                variant='outline'
-              />
-
-            <MenuList>
-                <MenuItem icon={<AddIcon />} command='⌘T'>
-                🇪🇸 Español
-                </MenuItem>
-                🇬🇧 Ingles
-            </MenuList>
-          </Menu>
-          
-        </Flex>
 
           <Flex align="center">
             <ThemeToggleButton />
@@ -143,8 +126,15 @@ const Navbar = (props) => {
               size="md"
               aria-label="Toggle Menu"
             />
+            <LanguageMenu />
           </Flex>
+
+          
+
+
         </Flex>
+
+
       </Container>
     </Box>
   )
