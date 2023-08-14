@@ -19,7 +19,7 @@ import { IoLogoGithub } from 'react-icons/io'
 import LanguageMenu from './translate-toggle-button.js'
 
 const LinkItem = ({ href, path, target, children, ...props }) => {
-  const active = path === href
+  const active = useColorModeValue('purple.500')
   const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
   return (
     <Link
@@ -89,13 +89,14 @@ const Navbar = (props) => {
             mt={{ base: 4, md: 0 }}
             spacing={{ base: 2, md: 4 }}
           >
-            <LinkItem href="/about" path={path}>
+            <LinkItem href="/" path={path}>
               About
             </LinkItem>
-            <LinkItem href="/posts" path={path}>
-              Blog
+
+            <LinkItem href="/about" path={path}>
+              Achievements
             </LinkItem>
-            <LinkItem href="/works">Achievements</LinkItem>
+          
             <LinkItem
               target="_blank"
               href="https://github.com/rpribau"
@@ -124,8 +125,7 @@ const Navbar = (props) => {
             <LanguageMenu />
           </Flex>
 
-          
-
+      
 
         </Flex>
 
