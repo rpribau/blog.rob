@@ -1,5 +1,17 @@
 import React, { useState, useRef } from 'react'; // Añadir useRef
-import { Box, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, useDisclosure, Lorem } from '@chakra-ui/react';
+import { Box, 
+         Button, 
+         Modal, 
+         ModalOverlay, 
+         ModalContent, 
+         ModalHeader, 
+         ModalCloseButton, 
+         ModalBody, 
+         ModalFooter, 
+         useDisclosure, 
+        } 
+from '@chakra-ui/react';
+
 import ImageBox from '../components/imagebox';
 
 function BlogPage() {
