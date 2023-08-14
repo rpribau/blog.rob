@@ -1,47 +1,47 @@
-import React, { useState } from 'react';
-import { Box, ScaleFade, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, useDisclosure } from '@chakra-ui/react';
+import React, { useState, useRef } from 'react'; // Añadir useRef
+import { Box, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, useDisclosure, Lorem } from '@chakra-ui/react';
+import ImageBox from '../components/imagebox';
 
 function BlogPage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const finalRef = useRef(); // Crear la referencia aquí
 
   const handleImageClick = () => {
     onOpen();
   };
 
   return (
-    <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
-      <ScaleFade initialScale={0.9} in={true}>
-        <Box
-          w="729px"
-          h="265px"
-          bgImage="url('https://i.kym-cdn.com/entries/icons/facebook/000/032/558/temp6.jpg')"
-          bgSize="cover"
-          bgPosition="center"
-          cursor="pointer"
-          rounded="md"
-          onClick={handleImageClick}
-        ></Box>
-      </ScaleFade>
+    <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" height="100vh">
+      <ImageBox
+        imageUrl="https://i.imgur.com/yTLHHab.png"
+        onClick={handleImageClick}
+      />
 
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Discard Changes?</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            Are you sure you want to discard all of your notes? 44 words will be deleted.
-          </ModalBody>
+      <Box mb={4} /> {/* Espacio de separación hacia abajo */}
 
-          <ModalFooter>
-            <Button colorScheme="red" mr={3} onClick={onClose}>
-              No
-            </Button>
-            <Button colorScheme="green" onClick={onClose}>
-              Yes
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+      <ImageBox
+        imageUrl="https://i.imgur.com/QQYlhb8.png"
+        onClick={handleImageClick}
+      />
+
+    <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
+    <ModalOverlay />
+    <ModalContent>
+        <ModalHeader>Modal Title</ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>
+        This is some modal content.
+        </ModalBody>
+
+        <ModalFooter>
+        <Button colorScheme='blue' mr={3} onClick={onClose}>
+            Close
+        </Button>
+        <Button variant='ghost'>Secondary Action</Button>
+        </ModalFooter>
+    </ModalContent>
+    </Modal>
+
     </Box>
   );
 }

@@ -96,6 +96,10 @@ const Navbar = (props) => {
             <LinkItem href="/about" path={path}>
               Achievements
             </LinkItem>
+
+            <LinkItem href="/" path={path}>
+              CV
+            </LinkItem>
           
             <LinkItem
               target="_blank"
