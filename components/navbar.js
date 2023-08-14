@@ -15,7 +15,8 @@ import {
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import { ThemeToggleButton } from './theme-toggle-button.js'
-import { IoLogoGithub } from 'react-icons/io'
+import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io'
+import { AiFillLinkedin } from 'react-icons/ai'
 import LanguageMenu from './translate-toggle-button.js'
 
 const LinkItem = ({ href, path, target, children, ...props }) => {
@@ -112,6 +113,19 @@ const Navbar = (props) => {
             >
               <IoLogoGithub />
               GitHub
+            </LinkItem>
+
+            <LinkItem
+              target="_blank"
+              href="https://www.linkedin.com/in/roberto-priego-bautista-61128b269/"
+              path={path}
+              display="inline-flex"
+              alignItems="center"
+              style={{ gap: 2 }}
+              pl={2}
+            >
+              <IoLogoLinkedin />
+              LinkedIn
             </LinkItem>
           </Stack>
 

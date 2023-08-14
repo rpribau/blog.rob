@@ -1,7 +1,8 @@
-import React, { useState, useRef } from 'react';
-import { Box, Button, useDisclosure, Image } from '@chakra-ui/react';
+import React, { useState, useRef, onClose, } from 'react';
+import { Box, Button, useDisclosure, Image, IconButton, HStack } from '@chakra-ui/react';
 import ImageBox from '../components/imagebox';
 import ReusableModal from '../components/reusable-modal';
+import { AiFillGithub } from 'react-icons/ai'
 
 function BlogPage() {
   const { isOpen: isOpenModal1, onOpen: onOpenModal1, onClose: onCloseModal1 } = useDisclosure();
@@ -16,6 +17,12 @@ function BlogPage() {
 
   const handleImageClickModal2 = () => {
     onOpenModal2();
+  };
+
+  const githubLink = "https://github.com/dvddvd300/Banorte-2023";
+
+  const handleGitHubClick = () => {
+    window.open(githubLink, '_blank');
   };
 
   return (
@@ -54,6 +61,14 @@ function BlogPage() {
           process faster. For the generation of web pages, a prototype of a new Banorte portal was created using Remix, a JavaScript framework and with additional tools 
           such as TailWind CSS and DaisyUI to generate friendlier and easier-to-use pages.
         </Box>
+        <Button
+            leftIcon={<AiFillGithub />}
+            colorScheme="purple"
+            onClick={handleGitHubClick}
+            mt={4}
+        >
+            GitHub Repo
+          </Button>
       </ReusableModal>
       
       <ReusableModal isOpen={isOpenModal2} onClose={onCloseModal2} finalRef={finalRefModal2} title="Modal 2 Title">
