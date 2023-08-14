@@ -1,26 +1,49 @@
-import { Container, Heading, SimpleGrid, Divider } from "@chakra-ui/react";
-import Section from "../components/section";
+import React, { useState } from 'react';
+import { Box, ScaleFade, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, useDisclosure } from '@chakra-ui/react';
 
-const About = () => {
-    return(
-        <Container>
-            <Section delay={0.1}>
-                <Heading as="h3" variant="section-title">
-                    About Me
-                    
-                </Heading>
-                <SimpleGrid columns={[1, 1, 2]} gap={6}>
-                    <Heading as="h4" variant="section-title">
-                        Hi, I'm Roberto Priego Bautista
-                    </Heading>
-                    <Heading as="h4" variant="section-title">
-                        I'm a student at Tecnologico de Monterrey based in Mexico!
-                    </Heading>
-                </SimpleGrid>
-            </Section>
-            
-        </Container>
-    )
+function BlogPage() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const handleImageClick = () => {
+    onOpen();
+  };
+
+  return (
+    <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+      <ScaleFade initialScale={0.9} in={true}>
+        <Box
+          w="729px"
+          h="265px"
+          bgImage="url('https://i.kym-cdn.com/entries/icons/facebook/000/032/558/temp6.jpg')"
+          bgSize="cover"
+          bgPosition="center"
+          cursor="pointer"
+          rounded="md"
+          onClick={handleImageClick}
+        ></Box>
+      </ScaleFade>
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Discard Changes?</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            Are you sure you want to discard all of your notes? 44 words will be deleted.
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme="red" mr={3} onClick={onClose}>
+              No
+            </Button>
+            <Button colorScheme="green" onClick={onClose}>
+              Yes
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </Box>
+  );
 }
 
-export default About;
+export default BlogPage;

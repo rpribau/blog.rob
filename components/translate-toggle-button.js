@@ -13,7 +13,7 @@ const LanguageMenu = () => {
   return (
     <Menu>
       <MenuButton as={Button} leftIcon={<HiTranslate />} variant="solid">
-        {selectedLanguage}
+        <span style={{ display: 'none' }}>{selectedLanguage}</span>
       </MenuButton>
       <MenuList>
         <MenuItem onClick={() => handleLanguageChange('Inglés')}>Inglés</MenuItem>
