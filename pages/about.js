@@ -1,8 +1,10 @@
-import React, { useState, useRef, onClose, } from 'react';
-import { Box, Button, useDisclosure, Image, IconButton, HStack } from '@chakra-ui/react';
+import React, { useRef, } from 'react';
+import { Box, Button, useDisclosure, Image, HStack } from '@chakra-ui/react';
 import ImageBox from '../components/imagebox';
 import ReusableModal from '../components/reusable-modal';
 import { AiFillGithub } from 'react-icons/ai'
+import {GrCertificate} from 'react-icons/gr'
+import {AiFillCheckCircle} from 'react-icons/ai'
 
 function BlogPage() {
   const { isOpen: isOpenModal1, onOpen: onOpenModal1, onClose: onCloseModal1 } = useDisclosure();
@@ -20,9 +22,14 @@ function BlogPage() {
   };
 
   const githubLink = "https://github.com/dvddvd300/Banorte-2023";
+  const test = "https://banorte-2023.pages.dev/?lng=es"
 
   const handleGitHubClick = () => {
     window.open(githubLink, '_blank');
+  };
+
+  const handleTestClick = () => {
+    window.open(test, '_blank');
   };
 
   return (
@@ -61,14 +68,34 @@ function BlogPage() {
           process faster. For the generation of web pages, a prototype of a new Banorte portal was created using Remix, a JavaScript framework and with additional tools 
           such as TailWind CSS and DaisyUI to generate friendlier and easier-to-use pages.
         </Box>
+
+        <HStack spacing={4} mt={4}>
         <Button
             leftIcon={<AiFillGithub />}
             colorScheme="purple"
-            onClick={handleGitHubClick}
-            mt={4}
+            onClick={handleGitHubClick} 
         >
             GitHub Repo
           </Button>
+
+          <Button
+            leftIcon={<GrCertificate />}
+            colorScheme="yellow"
+        >
+            Diploma
+          </Button>
+
+          <Button
+            leftIcon={<AiFillCheckCircle />}
+            onClick={handleTestClick}
+            colorScheme="green"
+        >
+            Test web page
+          </Button>
+
+        </HStack>
+
+
       </ReusableModal>
       
       <ReusableModal isOpen={isOpenModal2} onClose={onCloseModal2} finalRef={finalRefModal2} title="Modal 2 Title">
