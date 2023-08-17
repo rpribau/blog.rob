@@ -9,9 +9,11 @@ import {AiFillCheckCircle} from 'react-icons/ai'
 function BlogPage() {
   const { isOpen: isOpenModal1, onOpen: onOpenModal1, onClose: onCloseModal1 } = useDisclosure();
   const { isOpen: isOpenModal2, onOpen: onOpenModal2, onClose: onCloseModal2 } = useDisclosure();
+  const { isOpen: isOpenModal3, onOpen: onOpenModal3, onClose: onCloseModal3 } = useDisclosure();
   
   const finalRefModal1 = useRef();
   const finalRefModal2 = useRef();
+  const finalRefModal3 = useRef();
 
   const handleImageClickModal1 = () => {
     onOpenModal1();
@@ -19,6 +21,10 @@ function BlogPage() {
 
   const handleImageClickModal2 = () => {
     onOpenModal2();
+  };
+
+  const handleImageClickModal3 = () => {
+    onOpenModal3();
   };
 
   const githubLink = "https://github.com/dvddvd300/Banorte-2023";
@@ -37,6 +43,10 @@ function BlogPage() {
       <ImageBox imageUrl="https://i.imgur.com/yTLHHab.png" onClick={handleImageClickModal1} />
       <Box mb={4} />
       <ImageBox imageUrl="https://i.imgur.com/QQYlhb8.png" onClick={handleImageClickModal2} />
+      <Box mb={4} />
+      <ImageBox imageUrl="https://i.imgur.com/jMFUgd7.png" onClick={handleImageClickModal3} />
+
+
 
       <ReusableModal isOpen={isOpenModal1} onClose={onCloseModal1} finalRef={finalRefModal1} title="Hackathon Banorte - 1st place in category and event">
         <Box
@@ -92,15 +102,19 @@ function BlogPage() {
         >
             Test web page
           </Button>
-
         </HStack>
-
-
       </ReusableModal>
       
       <ReusableModal isOpen={isOpenModal2} onClose={onCloseModal2} finalRef={finalRefModal2} title="Modal 2 Title">
         This is some content for Modal 2.
       </ReusableModal>
+
+      <ReusableModal isOpen={isOpenModal3} onClose={onCloseModal3} finalRef={finalRefModal3} title="Modal 3 Title">
+        This is some content for Modal 3.
+      </ReusableModal>
+
+
+
     </Box>
   );
 }
