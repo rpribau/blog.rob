@@ -3,6 +3,7 @@ import { Box, Button, useDisclosure, Image, HStack } from '@chakra-ui/react';
 import ImageBox from '../components/imagebox';
 import ReusableModal from '../components/reusable-modal';
 import { AiFillGithub } from 'react-icons/ai'
+import { AiFillFire } from 'react-icons/ai'
 import {GrCertificate} from 'react-icons/gr'
 import {AiFillCheckCircle} from 'react-icons/ai'
 
@@ -30,6 +31,7 @@ function BlogPage() {
   const githubLink = "https://github.com/dvddvd300/Banorte-2023";
   const githubLink2 = "https://github.com/rpribau/Roborave-Trix";
   const test = "https://banorte-2023.pages.dev/?lng=es"
+  const roboflow = "https://universe.roboflow.com/roberto-priego-bautista-93gsj/roborave-image-model";
 
   const handleGitHubClick = () => {
     window.open(githubLink, '_blank');
@@ -41,6 +43,9 @@ function BlogPage() {
 
   const handleGitHubClick2 = () => {
     window.open(githubLink2, '_blank');
+  };
+  const roboflowClick = () => {
+    window.open(roboflow, '_blank');
   };
 
   return (
@@ -132,6 +137,14 @@ function BlogPage() {
             onClick={handleGitHubClick2} 
         >
             GitHub Repo
+          </Button>
+
+          <Button
+            leftIcon={<AiFillFire />}
+            colorScheme="pink"
+            onClick={roboflowClick}
+        >
+            Roboflow Model
           </Button>
 
 
