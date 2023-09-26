@@ -184,7 +184,7 @@ function BlogPage() {
 
             <Box mt={4}>
             Although I did not end up winning something like in Hack Banorte, the reality is that I took away a lot of knowledge regarding how an AI works, 
-            more specifically, the parameters behind the generation of AI responses, it is definitely a topic that I am studying. taking as a task to understand 
+            more specifically, the parameters behind the generation of AI responses, it is definitely a topic that I'm going to study and taking as a task to understand 
             well and be able to purchase a license to the OpenAI API.
             </Box>
         </Box>
