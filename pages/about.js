@@ -11,10 +11,12 @@ function BlogPage() {
   const { isOpen: isOpenModal1, onOpen: onOpenModal1, onClose: onCloseModal1 } = useDisclosure();
   const { isOpen: isOpenModal2, onOpen: onOpenModal2, onClose: onCloseModal2 } = useDisclosure();
   const { isOpen: isOpenModal3, onOpen: onOpenModal3, onClose: onCloseModal3 } = useDisclosure();
+  const { isOpen: isOpenModal4, onOpen: onOpenModal4, onClose: onCloseModal4 } = useDisclosure();
   
   const finalRefModal1 = useRef();
   const finalRefModal2 = useRef();
   const finalRefModal3 = useRef();
+  const finalRefModal4 = useRef();
 
   const handleImageClickModal1 = () => {
     onOpenModal1();
@@ -26,6 +28,10 @@ function BlogPage() {
 
   const handleImageClickModal3 = () => {
     onOpenModal3();
+  };
+
+  const handleImageClickModal4 = () => {
+    onOpenModal4();
   };
 
   const githubLink = "https://github.com/dvddvd300/Banorte-2023";
@@ -55,9 +61,9 @@ function BlogPage() {
       <Box mb={4} />
       <ImageBox imageUrl="https://i.imgur.com/QQYlhb8.png" onClick={handleImageClickModal2} />
       <Box mb={4} />
-      <ImageBox imageUrl="https://i.imgur.com/Tt2ckgb.png" onClick={handleImageClickModal2} />
+      <ImageBox imageUrl="https://i.imgur.com/Tt2ckgb.png" onClick={handleImageClickModal3} />
       <Box mb={4} />
-      <ImageBox imageUrl="https://i.imgur.com/jMFUgd7.png" onClick={handleImageClickModal2} />
+      <ImageBox imageUrl="https://i.imgur.com/jMFUgd7.png" onClick={handleImageClickModal4} />
       <Box mb={4} />
       <ImageBox imageUrl="https://i.imgur.com/r2I9KNP.png" onClick={handleImageClickModal3} />
       
@@ -123,7 +129,7 @@ function BlogPage() {
       </ReusableModal>
       
       <ReusableModal isOpen={isOpenModal2} onClose={onCloseModal2} finalRef={finalRefModal2} title="RoboRAVE Monterrey Invitational">
-      This is my last project to date in which I participate in the FireFighting category. It consisted of building a 100% autonomous robot 
+      This is my last robotics project to date in which I participate in the FireFighting category. It consisted of building a 100% autonomous robot 
       that could put out candles that are at different heights and blocked by walls. Just like the sails were surrounded by black tape that 
       marked an area for the sails that could be used by sensors to align the robot. I participated with my team called Robotrix, made up mainly 
       of Mechatronic and Robotic Engineers. While they were mainly in charge of the function of motors and sensors, I personally was in charge of 
@@ -159,11 +165,34 @@ function BlogPage() {
 
       </ReusableModal>
 
-      <ReusableModal isOpen={isOpenModal3} onClose={onCloseModal3} finalRef={finalRefModal3} title="Modal 3 Title">
-        This is some content for Modal 3.
+      <ReusableModal isOpen={isOpenModal3} onClose={onCloseModal3} finalRef={finalRefModal3} title="HackMTY 2023 - SoftTek Challenge">
+        26/9/2023
+        <Box mt={4}>
+            Me and some friends we know at VOLTEC, we decided to enter the Hackathon Monterrey in its 10th edition. This year the company SoftTek 
+            decided to offer a very interesting challenge, a challenge that definitely gave me multiple knowledge, especially when it comes to 
+            doing front end in different tools and AI knowledge. The challenge was to design a Search Engine that could help companies. It was not 
+            specified to us what the Search Engine had to be or the type of companies were targeting, so with that in mind we decided to create a Search Engine that 
+            would allow the loading of multiple files of different formats (.pdf, .docx, .pptx, .xlsx and .csv) and could read them and search for information on the data sent. 
+            This was our main goal because we remembered that most of companies deals with too many files and it is difficult to find information in them. 
+            All this was possible thanks to SoftTek providing us with an API key from OpenAI, the company behind the famous ChatGPT. Using the API was 
+            quite unusual because the key we were given was not necessarily from OpenAI, but rather, it was a key to the Azure OpenAI API, something 
+            similar to what OpenAI sells to the public with its API. This was clearly limited by SoftTek with a limit on the amount of information 
+            we could send and the chat could generate. However, this was not the only problem, we also had problems when making the front end using 
+            Next.js and TailwindCSS. For some reason they did not finish loading the page styles once you left the main page. This cost us a lot of 
+            time, but we found a solution, making the front end with Python and the Streamlit library. This helped a lot when integrating the back 
+            and front end because the back end (an area that I personally developed) was done in Python.
+
+            <Box mt={4}>
+            Although I did not end up winning something like in Hack Banorte, the reality is that I took away a lot of knowledge regarding how an AI works, 
+            more specifically, the parameters behind the generation of AI responses, it is definitely a topic that I am studying. taking as a task to understand 
+            well and be able to purchase a license to the OpenAI API.
+            </Box>
+        </Box>
       </ReusableModal>
 
-
+      <ReusableModal isOpen={isOpenModal4} onClose={onCloseModal4} finalRef={finalRefModal4} title="Test 4">
+        This is a test 
+      </ReusableModal>
 
     </Box>
   );
