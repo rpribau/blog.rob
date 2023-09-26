@@ -50,11 +50,18 @@ function BlogPage() {
 
   return (
     <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" height="100vh">
+      <Box mb={650} />
       <ImageBox imageUrl="https://i.imgur.com/yTLHHab.png" onClick={handleImageClickModal1} />
       <Box mb={4} />
       <ImageBox imageUrl="https://i.imgur.com/QQYlhb8.png" onClick={handleImageClickModal2} />
       <Box mb={4} />
-      <ImageBox imageUrl="https://i.imgur.com/jMFUgd7.png" onClick={handleImageClickModal3} />
+      <ImageBox imageUrl="https://i.imgur.com/Tt2ckgb.png" onClick={handleImageClickModal2} />
+      <Box mb={4} />
+      <ImageBox imageUrl="https://i.imgur.com/jMFUgd7.png" onClick={handleImageClickModal2} />
+      <Box mb={4} />
+      <ImageBox imageUrl="https://i.imgur.com/r2I9KNP.png" onClick={handleImageClickModal3} />
+      
+      
 
 
 
