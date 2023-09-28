@@ -36,6 +36,7 @@ function BlogPage() {
 
   const githubLink = "https://github.com/dvddvd300/Banorte-2023";
   const githubLink2 = "https://github.com/rpribau/Roborave-Trix";
+  const githubLink3 = "https://github.com/rpribau/back-hack2023";
   const test = "https://banorte-2023.pages.dev/?lng=es"
   const roboflow = "https://universe.roboflow.com/roberto-priego-bautista-93gsj/roborave-image-model";
 
@@ -49,6 +50,10 @@ function BlogPage() {
 
   const handleGitHubClick2 = () => {
     window.open(githubLink2, '_blank');
+  };
+
+  const handleGitHubClick3 = () => {
+    window.open(githubLink3, '_blank');
   };
   const roboflowClick = () => {
     window.open(roboflow, '_blank');
@@ -167,6 +172,16 @@ function BlogPage() {
 
       <ReusableModal isOpen={isOpenModal3} onClose={onCloseModal3} finalRef={finalRefModal3} title="HackMTY 2023 - SoftTek Challenge">
         26/9/2023
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          p="8" // Espaciado interno
+        >
+          <iframe width="660" height="415" src="https://www.youtube.com/embed/yeomTfMoLDU?si=xnZSrk9aMNaK1lSP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </Box>
+
+
         <Box mt={4}>
             Me and some friends we know at VOLTEC, we decided to enter the Hackathon Monterrey in its 10th edition. This year the company SoftTek 
             decided to offer a very interesting challenge, a challenge that definitely gave me multiple knowledge, especially when it comes to 
@@ -188,6 +203,18 @@ function BlogPage() {
             well and be able to purchase a license to the OpenAI API.
             </Box>
         </Box>
+
+        <HStack spacing={4} mt={4}>
+        <Button
+            leftIcon={<AiFillGithub />}
+            colorScheme="purple"
+            onClick={handleGitHubClick3}
+        >
+            GitHub Repo
+          </Button>
+
+        
+          </HStack>
       </ReusableModal>
 
       <ReusableModal isOpen={isOpenModal4} onClose={onCloseModal4} finalRef={finalRefModal4} title="Test 4">
