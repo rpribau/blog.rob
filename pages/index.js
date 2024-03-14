@@ -14,6 +14,7 @@ import { ChevronRightIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 import { useState } from 'react';
 import UnderConstructionAlert from '../components/underconstructionalert';
+import { BioSection, BioYear } from '../components/bio'
 
 const Page = () => {
   const [showNotification, setNotification] = useState(true);
@@ -110,6 +111,8 @@ const Page = () => {
           experience, however as a FIRST ALUMNI I can say that teamwork is not
           something that bothers me at all.
         </Paragraph>
+        <h>‎</h>
+
 
         <Box align="center" my={4}>
           <Button

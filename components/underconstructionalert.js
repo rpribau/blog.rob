@@ -14,7 +14,7 @@ const UnderConstructionAlert = () => {
       fontSize="sm"
     >
       <AlertIcon color={iconColor} />
-      This site is still under construction, so some features may not work properly.
+      This site is still under construction, some features may not work properly.
     </Alert>
   );
 };
