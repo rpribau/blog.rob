@@ -140,7 +140,6 @@ const Navbar = (props) => {
               size="md"
               aria-label="Toggle Menu"
             />
-            <LanguageMenu />
           </Flex>
 
       

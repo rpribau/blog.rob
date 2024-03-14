@@ -6,6 +6,9 @@ import { AiFillGithub } from 'react-icons/ai'
 import { AiFillFire } from 'react-icons/ai'
 import {GrCertificate} from 'react-icons/gr'
 import {AiFillCheckCircle} from 'react-icons/ai'
+import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
+import { ButtonGroup, Heading, Text, Stack, Divider } from '@chakra-ui/react'
+import { Grid } from '@chakra-ui/react'
 
 function BlogPage() {
   const { isOpen: isOpenModal1, onOpen: onOpenModal1, onClose: onCloseModal1 } = useDisclosure();
@@ -60,21 +63,147 @@ function BlogPage() {
   };
 
   return (
-    <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" height="100vh">
-      <Box mb={650} />
-      <ImageBox imageUrl="https://i.imgur.com/yTLHHab.png" onClick={handleImageClickModal1} />
-      <Box mb={4} />
-      <ImageBox imageUrl="https://i.imgur.com/QQYlhb8.png" onClick={handleImageClickModal2} />
-      <Box mb={4} />
-      <ImageBox imageUrl="https://i.imgur.com/Tt2ckgb.png" onClick={handleImageClickModal3} />
-      <Box mb={4} />
-      <ImageBox imageUrl="https://i.imgur.com/jMFUgd7.png" onClick={handleImageClickModal4} />
-      <Box mb={4} />
-      <ImageBox imageUrl="https://i.imgur.com/r2I9KNP.png" onClick={handleImageClickModal3} />
-      
-      
+    <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" mt={10}>
+      <Grid templateColumns="repeat(2, minmax(0, 1fr))" gap={6}>
 
+      {/* Hackathon Banorte */}
+      <Card maxW='sm'>
+        <CardBody>
+          <Image
+            src='https://i.imgur.com/yTLHHab.png'
+            alt='Banorte'
+            borderRadius='lg'
+          />
+          <Stack mt='6' spacing='3'>
+            <Heading size='md'>Hackathon Banorte 2023</Heading>
+            <Text>
+              Interface created using Remix, TailwindCSS and DaisyUI. The main goal was to create a new version of the Banorte portal using artificial intelligence.
+            </Text>
+          </Stack>
+        </CardBody>
+        <Divider />
+        <CardFooter>
+          <ButtonGroup spacing='2'>
+            <Button variant='solid' colorScheme='blue' onClick={handleImageClickModal1}>
+              About
+            </Button>
+            <Button variant='solid' colorScheme='purple'>
+              Repo
+            </Button>
+          </ButtonGroup>
+        </CardFooter>
+      </Card>
 
+    {/* RoboRAVE */}
+      <Card maxW='sm'>
+        <CardBody>
+          <Image
+            src='https://i.imgur.com/QQYlhb8.png'
+            alt='RoboRAVE Monterrey 2023'
+            borderRadius='lg'
+          />
+          <Stack mt='6' spacing='3'>
+            <Heading size='md'>RoboRAVE Monterrey 2023</Heading>
+            <Text>
+              I compited in the FireFighting category with a robot that could put out candles that are at different heights and blocked by walls.
+            </Text>
+          </Stack>
+        </CardBody>
+        <Divider />
+        <CardFooter>
+          <ButtonGroup spacing='2'>
+            <Button variant='solid' colorScheme='blue' onClick={handleImageClickModal2}>
+              About
+            </Button>
+            <Button variant='solid' colorScheme='purple'>
+              Repo
+            </Button>
+          </ButtonGroup>
+        </CardFooter>
+      </Card>
+
+      {/* HackMTY */}
+
+      <Card maxW='sm'>
+        <CardBody>
+          <Image
+            src='https://i.imgur.com/Tt2ckgb.png'
+            alt='RoboRAVE Monterrey 2023'
+            borderRadius='lg'
+          />
+          <Stack mt='6' spacing='3'>
+            <Heading size='md'>HackMTY 2023</Heading>
+            <Text>
+              Search Engine focused in looking for information from multiple files of different formats (.pdf, .docx, .pptx, .xlsx and .csv) and interpretate them with help of OpenAI GPT-4.
+            </Text>
+          </Stack>
+        </CardBody>
+        <Divider />
+        <CardFooter>
+          <ButtonGroup spacing='2'>
+            <Button variant='solid' colorScheme='blue' onClick={handleImageClickModal3}>
+              About
+            </Button>
+            <Button variant='solid' colorScheme='purple'>
+              Repo
+            </Button>
+          </ButtonGroup>
+        </CardFooter>
+      </Card>
+
+      {/* VOLTEC Robotics */}
+
+      <Card maxW='sm'>
+        <CardBody>
+          <Image
+            src='https://i.imgur.com/jMFUgd7.png'
+            alt='VOLTEC Robotics 6647'
+            borderRadius='lg'
+          />
+          <Stack mt='6' spacing='3'>
+            <Heading size='md'>VOLTEC Robotics</Heading>
+            <Text>
+              FIRST Robotics Competition team that I was part of during my high school. We are a team that is focused on the development of robots for the FIRST Robotics Competition and inspire young people to be science and technology leaders.
+            </Text>
+          </Stack>
+        </CardBody>
+        <Divider />
+        <CardFooter>
+          <ButtonGroup spacing='2'>
+            <Button variant='solid' colorScheme='blue' onClick={handleImageClickModal4}>
+              About
+            </Button>
+          </ButtonGroup>
+        </CardFooter>
+      </Card>
+
+      {/* My Community Project */}
+
+      <Card maxW='sm'>
+        <CardBody>
+          <Image
+            src='https://i.imgur.com/r2I9KNP.png'
+            alt='VOLTEC Robotics 6647'
+            borderRadius='lg'
+          />
+          <Stack mt='6' spacing='3'>
+            <Heading size='md'>IB MYP - My Community Project</Heading>
+            <Text>
+              Develop a communication app for autistic children to help them communicate with their parents and teachers.
+            </Text>
+          </Stack>
+        </CardBody>
+        <Divider />
+        <CardFooter>
+          <ButtonGroup spacing='2'>
+            <Button variant='solid' colorScheme='blue' onClick={handleImageClickModal4}>
+              About
+            </Button>
+          </ButtonGroup>
+        </CardFooter>
+      </Card>
+
+      </Grid>
 
       <ReusableModal isOpen={isOpenModal1} onClose={onCloseModal1} finalRef={finalRefModal1} title="Hackathon Banorte - 1st place in category and event">
         <Box
