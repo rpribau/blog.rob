@@ -227,13 +227,15 @@ function BlogPage() {
         
         <Box mt={8} alignContent='center'>
 
-          Probably the most demanding project I've ever had, the Banorte Hackathon was one of the best experiences I had sharing with several of my best friends, 
-          friends who were and are part of the VOLTEC ROBOTICS 6647 team. In this challenge there was a focus on improving the experience of the user using the Banorte 
+          Probably one of  the most demanding project I've ever had, the Banorte Hackathon was one of the best experiences I had with several of my best friends, 
+          friends who were and are part of the VOLTEC ROBOTICS 6647 team. In this challenge there was a focus on improving the user experience of the Banorte 
           portal using artificial intelligence. Tools such as Pytorch were used to generate a script that would allow knowing where the user's mouse position is to 
-          determine the time it took to reach a portal service. As well as based on artificial intelligence, which will generate a new version of the Banorte portal 
-          and determine how long it takes. If the AI made the process faster than the human, this user will receive an update from his portal so that he can make that 
+          determine the time it took to reach a portal service. Later, also with artificial intelligence, generate a new version of the Banorte portal exclusive for that user.
+          If the AI made an action faster than the human when reaching a service, the user will receive an update to his portal so that he can make that 
           process faster. For the generation of web pages, a prototype of a new Banorte portal was created using Remix, a JavaScript framework and with additional tools 
           such as TailWind CSS and DaisyUI to generate friendlier and easier-to-use pages.
+
+
         </Box>
 
         <HStack spacing={4} mt={4}>
@@ -312,8 +314,8 @@ function BlogPage() {
 
 
         <Box mt={4}>
-            Me and some friends we know at VOLTEC, we decided to enter the Hackathon Monterrey in its 10th edition. This year the company SoftTek 
-            decided to offer a very interesting challenge, a challenge that definitely gave me multiple knowledge, especially when it comes to 
+            I reunited with some of my friends I know at VOLTEC and decided to enter the Hackathon Monterrey in its 10th edition. This year, the company SoftTek 
+            decided to offer a very interesting challenge, a challenge that definitely gave multiple knowledge, especially when it comes to 
             doing front end in different tools and AI knowledge. The challenge was to design a Search Engine that could help companies. It was not 
             specified to us what the Search Engine had to be or the type of companies were targeting, so with that in mind we decided to create a Search Engine that 
             would allow the loading of multiple files of different formats (.pdf, .docx, .pptx, .xlsx and .csv) and could read them and search for information on the data sent. 
