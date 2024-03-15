@@ -393,7 +393,7 @@ function BlogPage() {
         develop in me a sense of leadership and teamwork that I didn't have before. I was part of the team for 3 years, in which I was able to learn a lot about how to teamwork 
         in a efficient way and how to develop a robot from scratch. I was part of the programming team, in which I was able to learn how to program in Java, more specifically using the 
         WPILib library, a library that is used to program robots in the FIRST Robotics Competition. During my first year I was able to program some parts of the robot and learn how to
-        write efficient code that could be used in the robot. Unfortunately, I was not able to participate in the 2020 season due to the COVID-19 pandemic, but I was able to participate
+        write efficient code that could be used in the robot. Unfortunately, I was not able to participate in the 2020 and 2021 season due to the COVID-19 pandemic, but I was able to participate
         in the 2022 season in which I took leadership in the scouting team, a team that is in charge of gathering information about the other teams in the competition. This a introduction
         to data science to me, because I had to gather information and helped to develop an Excel Sheet that could help us to forecast the performance of the other teams in the competition and
         see if we had a good match or not. During my last off-season, I was able to leave part of my legacy in the team by developing a scouting app that could help us to gather information in
@@ -402,6 +402,11 @@ function BlogPage() {
       </ReusableModal>
 
       <ReusableModal isOpen={isOpenModal5} onClose={onCloseModal5} finalRef={finalRefModal5} title="IB MYP - My Community Project">
+
+        As my final project for the IB MYP program and be able to get my junior high diploma, I decided to develop a communication app for autistic children to help them communicate with their parents and teachers.
+        This app was developed using Swift, the main language for iOS development. This was my very first project in which I was able to develop a full app from scratch using only the documentation of Apple and
+        some tutoring from my dad. The main reason behind creating this app was because of my little sister, who is autistic and has a hard time communicating with us back then. Thankfully, she has improved a lot in 
+        her communication skills, but I wanted to help other children that are in the same situation as my sister. 
 
       </ReusableModal>
 
