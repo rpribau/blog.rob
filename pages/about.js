@@ -163,7 +163,7 @@ function BlogPage() {
           <Stack mt='6' spacing='3'>
             <Heading size='md'>VOLTEC Robotics</Heading>
             <Text>
-              FIRST Robotics Competition team that I was part of during my high school. We are a team that is focused on the development of robots for the FIRST Robotics Competition and inspire young people to be science and technology leaders.
+              FIRST Robotics Competition team that I was part of during high school. We are a team that is focused on the development of robots for the FIRST Robotics Competition and inspire young people to be science and technology leaders.
             </Text>
           </Stack>
         </CardBody>
@@ -190,6 +190,32 @@ function BlogPage() {
             <Heading size='md'>IB MYP - My Community Project</Heading>
             <Text>
               Develop a communication app for autistic children to help them communicate with their parents and teachers.
+            </Text>
+          </Stack>
+        </CardBody>
+        <Divider />
+        <CardFooter>
+          <ButtonGroup spacing='2'>
+            <Button variant='solid' colorScheme='blue' onClick={handleImageClickModal4}>
+              About
+            </Button>
+          </ButtonGroup>
+        </CardFooter>
+      </Card>
+
+      {/* Reto - Don Colchon */}
+
+      <Card maxW='sm'>
+        <CardBody>
+          <Image
+            src='https://imagizer.imageshack.com/img923/3756/3DYuI1.png'
+            alt='Don Colchon - SPiD'
+            borderRadius='lg'
+          />
+          <Stack mt='6' spacing='3'>
+            <Heading size='md'>SPiD - Don Colchon</Heading>
+            <Text>
+              A friendly web page to manage inventory using Machine Learning algorithms to predict the amount of mattresses that will be sold during time.
             </Text>
           </Stack>
         </CardBody>
