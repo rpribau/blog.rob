@@ -15,11 +15,15 @@ function BlogPage() {
   const { isOpen: isOpenModal2, onOpen: onOpenModal2, onClose: onCloseModal2 } = useDisclosure();
   const { isOpen: isOpenModal3, onOpen: onOpenModal3, onClose: onCloseModal3 } = useDisclosure();
   const { isOpen: isOpenModal4, onOpen: onOpenModal4, onClose: onCloseModal4 } = useDisclosure();
+  const { isOpen: isOpenModal5, onOpen: onOpenModal5, onClose: onCloseModal5 } = useDisclosure();
+  const { isOpen: isOpenModal6, onOpen: onOpenModal6, onClose: onCloseModal6 } = useDisclosure();
   
   const finalRefModal1 = useRef();
   const finalRefModal2 = useRef();
   const finalRefModal3 = useRef();
   const finalRefModal4 = useRef();
+  const finalRefModal5 = useRef();
+  const finalRefModal6 = useRef();
 
   const handleImageClickModal1 = () => {
     onOpenModal1();
@@ -36,6 +40,14 @@ function BlogPage() {
   const handleImageClickModal4 = () => {
     onOpenModal4();
   };
+
+  const handleImageClickModal5 = () => {
+    onOpenModal5();
+  }
+
+  const handleImageClickModal6 = () => {
+    onOpenModal6();
+  }
 
   const githubLink = "https://github.com/dvddvd300/Banorte-2023";
   const githubLink2 = "https://github.com/rpribau/Roborave-Trix";
@@ -87,8 +99,8 @@ function BlogPage() {
             <Button variant='solid' colorScheme='blue' onClick={handleImageClickModal1}>
               About
             </Button>
-            <Button variant='solid' colorScheme='purple'>
-              Repo
+            <Button variant='solid' colorScheme='purple' leftIcon={<AiFillGithub />}>
+              GitHub
             </Button>
           </ButtonGroup>
         </CardFooter>
@@ -115,8 +127,8 @@ function BlogPage() {
             <Button variant='solid' colorScheme='blue' onClick={handleImageClickModal2}>
               About
             </Button>
-            <Button variant='solid' colorScheme='purple'>
-              Repo
+            <Button variant='solid' colorScheme='purple' leftIcon={<AiFillGithub />}>
+              GitHub
             </Button>
           </ButtonGroup>
         </CardFooter>
@@ -144,8 +156,8 @@ function BlogPage() {
             <Button variant='solid' colorScheme='blue' onClick={handleImageClickModal3}>
               About
             </Button>
-            <Button variant='solid' colorScheme='purple'>
-              Repo
+            <Button variant='solid' colorScheme='purple' leftIcon={<AiFillGithub />}>
+              GitHub
             </Button>
           </ButtonGroup>
         </CardFooter>
@@ -196,7 +208,7 @@ function BlogPage() {
         <Divider />
         <CardFooter>
           <ButtonGroup spacing='2'>
-            <Button variant='solid' colorScheme='blue' onClick={handleImageClickModal4}>
+            <Button variant='solid' colorScheme='blue' onClick={handleImageClickModal5}>
               About
             </Button>
           </ButtonGroup>
@@ -222,8 +234,11 @@ function BlogPage() {
         <Divider />
         <CardFooter>
           <ButtonGroup spacing='2'>
-            <Button variant='solid' colorScheme='blue' onClick={handleImageClickModal4}>
+            <Button variant='solid' colorScheme='blue' onClick={handleImageClickModal6}>
               About
+            </Button>
+            <Button variant='solid' colorScheme='purple' leftIcon={<AiFillGithub />}>
+              GitHub
             </Button>
           </ButtonGroup>
         </CardFooter>
@@ -260,7 +275,6 @@ function BlogPage() {
           If the AI made an action faster than the human when reaching a service, the user will receive an update to his portal so that he can make that 
           process faster. For the generation of web pages, a prototype of a new Banorte portal was created using Remix, a JavaScript framework and with additional tools 
           such as TailWind CSS and DaisyUI to generate friendlier and easier-to-use pages.
-
 
         </Box>
 
@@ -374,9 +388,28 @@ function BlogPage() {
           </HStack>
       </ReusableModal>
 
-      <ReusableModal isOpen={isOpenModal4} onClose={onCloseModal4} finalRef={finalRefModal4} title="Test 4">
-        This is a test 
+      <ReusableModal isOpen={isOpenModal4} onClose={onCloseModal4} finalRef={finalRefModal4} title="VOLTEC Robotics">
+        During my high school yeart I was part of VOLTEC Robotics 6647, a FIRST Robotics Competition team that helped me to develop my skills beyond engineering. This team 
+        develop in me a sense of leadership and teamwork that I didn't have before. I was part of the team for 3 years, in which I was able to learn a lot about how to teamwork 
+        in a efficient way and how to develop a robot from scratch. I was part of the programming team, in which I was able to learn how to program in Java, more specifically using the 
+        WPILib library, a library that is used to program robots in the FIRST Robotics Competition. During my first year I was able to program some parts of the robot and learn how to
+        write efficient code that could be used in the robot. Unfortunately, I was not able to participate in the 2020 season due to the COVID-19 pandemic, but I was able to participate
+        in the 2022 season in which I took leadership in the scouting team, a team that is in charge of gathering information about the other teams in the competition. This a introduction
+        to data science to me, because I had to gather information and helped to develop an Excel Sheet that could help us to forecast the performance of the other teams in the competition and
+        see if we had a good match or not. During my last off-season, I was able to leave part of my legacy in the team by developing a scouting app that could help us to gather information in
+        a more efficient way and without filling a lot of papers. This app was developed in Flutter, a framework that I learned in my free time and that I was able to use in the team.
+         
       </ReusableModal>
+
+      <ReusableModal isOpen={isOpenModal5} onClose={onCloseModal5} finalRef={finalRefModal5} title="IB MYP - My Community Project">
+
+      </ReusableModal>
+
+      <ReusableModal isOpen={isOpenModal6} onClose={onCloseModal6} finalRef={finalRefModal6} title="SPiD - Don Colchon">
+
+      </ReusableModal>
+
+
 
     </Box>
   );
