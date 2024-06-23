@@ -13,8 +13,8 @@ import Paragraph from '../components/paragraph';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 import { useState } from 'react';
+import Layout from '../components/layouts/article';
 import UnderConstructionAlert from '../components/underconstructionalert';
-import { BioSection, BioYear } from '../components/bio'
 
 const Page = () => {
   const [showNotification, setNotification] = useState(true);
@@ -33,9 +33,10 @@ const Page = () => {
   const imageSize = { width: '637px', height: '258px' }; // Tamaño de la primera imagen
 
   return (
+    <Layout>
     <Container>
       <h>‎</h>                                     {/*Just a temporal solution...*/}
-      {showNotification && (
+      {/* {showNotification && (
         <Box p={4} bg="yellow.200" rounded="md" mb={4} position="relative">
           <Box>
             <UnderConstructionAlert />
@@ -49,8 +50,7 @@ const Page = () => {
             onClick={handleNotificationClose}
           />
         </Box>
-      )}
-
+      )} */}
       <Box align="center" my={4}>
         <Image
           src={colorMode === 'dark' ? darkModeImage : lightModeImage}
@@ -106,18 +106,17 @@ const Page = () => {
           I'm an independent developer who tries to learn according to my needs
           or projects that I have in mind so that I can become a full-stack
           developer in the near future. I'm currently based in Monterrey
-          studying Engineering in Data Sciences and Mathematics focused mainly
-          on artificial intelligence. At the moment I don't have any work
+          studying Data Science and Mathematics focused mainly
+          on artificial intelligence. At the moment I don't have any formal work
           experience, however as a FIRST ALUMNI I can say that teamwork is not
           something that bothers me at all.
         </Paragraph>
         <h>‎</h>
 
-
         <Box align="center" my={4}>
           <Button
             as={Link}
-            href="/about"
+            href="/works"
             scroll={false}
             rightIcon={<ChevronRightIcon />}
             colorScheme="teal"
@@ -126,8 +125,8 @@ const Page = () => {
           </Button>
         </Box>
       </Section>
-
     </Container>
+    </Layout>
   );
 };
 

@@ -11,13 +11,19 @@ import {
   Flex,
   IconButton,
   useColorModeValue,
-  
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerHeader,
+  DrawerBody,
+  useDisclosure,
+  Button,
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import { ThemeToggleButton } from './theme-toggle-button.js'
 import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io'
-import { AiFillLinkedin } from 'react-icons/ai'
-import LanguageMenu from './translate-toggle-button.js'
+// import LanguageMenu from './translate-toggle-button.js' # Algun dia pondre la pagina en español... algun dia...
 
 const LinkItem = ({ href, path, target, children, ...props }) => {
   const active = useColorModeValue('purple.500')
@@ -44,6 +50,7 @@ const Navbar = (props) => {
   const { path } = props
   const [isOpen, setIsOpen] = useState(false)
   const menuRef = useRef(null)
+  const { isOpen: isDrawerOpen, onOpen, onClose } = useDisclosure()
 
   const handleMenuToggle = () => {
     setIsOpen(!isOpen)
@@ -83,7 +90,7 @@ const Navbar = (props) => {
 
           <Stack
             direction={{ base: 'column', md: 'row' }}
-            display={{ base: isOpen ? 'flex' : 'none', md: 'flex' }}
+            display={{ base: 'none', md: 'flex' }}
             width={{ base: 'full', md: 'auto' }}
             alignItems="center"
             flexGrow={1}
@@ -94,11 +101,14 @@ const Navbar = (props) => {
               About
             </LinkItem>
 
-            <LinkItem href="/about" path={path}>
-              Achievements
+            <LinkItem href="/works" path={path}>
+              Works
             </LinkItem>
 
-            <LinkItem href="/" path={path}>
+            <LinkItem 
+              target="_blank"
+              href="https://drive.google.com/file/d/1AiZ90eZdwhVPDhv1rCrKPaUBPbeG1v0Z/view?usp=sharing" 
+              path={path}>
               CV
             </LinkItem>
           
@@ -129,25 +139,73 @@ const Navbar = (props) => {
             </LinkItem>
           </Stack>
 
-
           <Flex align="center">
             <ThemeToggleButton />
             <IconButton
               display={{ base: 'flex', md: 'none' }}
-              onClick={handleMenuToggle}
+              onClick={onOpen}
               icon={<HamburgerIcon />}
               variant="ghost"
               size="md"
               aria-label="Toggle Menu"
             />
           </Flex>
-
-      
-
         </Flex>
-
-
       </Container>
+
+      <Drawer
+        isOpen={isDrawerOpen}
+        placement="right"
+        onClose={onClose}
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader>Menu</DrawerHeader>
+          <DrawerBody>
+            <Stack spacing={4}>
+              <LinkItem href="/" path={path} onClick={onClose}>
+                About
+              </LinkItem>
+              <LinkItem href="/works" path={path} onClick={onClose}>
+                Works
+              </LinkItem>
+              <LinkItem 
+                target="_blank"
+                href="https://drive.google.com/file/d/1AiZ90eZdwhVPDhv1rCrKPaUBPbeG1v0Z/view?usp=sharing" 
+                path={path}
+                onClick={onClose}
+              >
+                CV
+              </LinkItem>
+              <LinkItem
+                target="_blank"
+                href="https://github.com/rpribau"
+                path={path}
+                display="inline-flex"
+                alignItems="center"
+                style={{ gap: 2 }}
+                onClick={onClose}
+              >
+                <IoLogoGithub />
+                GitHub
+              </LinkItem>
+              <LinkItem
+                target="_blank"
+                href="https://www.linkedin.com/in/roberto-priego-bautista-61128b269/"
+                path={path}
+                display="inline-flex"
+                alignItems="center"
+                style={{ gap: 2 }}
+                onClick={onClose}
+              >
+                <IoLogoLinkedin />
+                LinkedIn
+              </LinkItem>
+            </Stack>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
     </Box>
   )
 }
