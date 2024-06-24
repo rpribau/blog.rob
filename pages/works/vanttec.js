@@ -1,4 +1,4 @@
-import { Container, Badge, Link, List, ListItem } from "@chakra-ui/react";
+import { Container, Badge, Link, List, ListItem, AspectRatio, Heading, Center } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { Title, WorkImage, Meta } from "../../components/work";
 import P from "../../components/paragraph";
@@ -44,6 +44,24 @@ const Work = () => {
                         <span>  ROS2 Humble, OpenCV, C++, CMake, Python </span>
                     </ListItem>
                 </List>
+
+                <Heading as="h4" fontSize={18} my={8}>
+                    <Center> Media</Center>
+                </Heading>
+
+                <AspectRatio maxW="560px" ratio={1} my={4}>
+                    <iframe 
+                        width="560" 
+                        height="55" 
+                        src="https://www.youtube.com/embed/a_qDwYcEesU?si=ibVcz1BYYQ0bbgtT" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen>
+                    </iframe>
+                </AspectRatio>
+                
             </Container>
         </Layout>
     )
