@@ -10,6 +10,7 @@ import thumbdoncholchon from "../public/images/6.png";
 import thumbrockethack from "../public/images/rockethack.png";
 import thumbvoltec from "../public/images/3.png";
 import thumbcommunity from "../public/images/4.png";
+import thumbignition from "../public/images/ignition.png";
 
 const Works = () => {
     return (
@@ -33,10 +34,9 @@ const Works = () => {
             </Heading>
             <SimpleGrid columns={[1,1,1]} gap={6}>
             <Section>
-            <WorkGridItem id="rockethack" title="RocketHack - Arca Continental" thumbnail={thumbrockethack}>
-            Two separate tools to help the company to improve the prediction of potential lost clients and to help the sales team to have a better understanding of the clients.
+            <WorkGridItem id="ignition" title="Ignition Hack - StudyMetrics" thumbnail={thumbignition}>
+                An AI SaaS that empowers teachers into creating new and innovative experiences for their students, all by the power for artificial intelligence as a data centric approach.
             </WorkGridItem>
-
             </Section>
         </SimpleGrid>
 
@@ -46,6 +46,12 @@ const Works = () => {
               Old work:
         </Heading>
         <SimpleGrid columns={[1,1,2]} gap={6}>
+
+        <Section>
+            <WorkGridItem id="rockethack" title="RocketHack - Arca Continental" thumbnail={thumbrockethack}>
+            Two separate tools to help the company to improve the prediction of potential lost clients and to help the sales team to have a better understanding of the clients.
+            </WorkGridItem>
+            </Section>
 
             <Section>
             <WorkGridItem id="doncolchon" title="SPiD - Don Colchon" thumbnail={thumbdoncholchon}>
