@@ -24,13 +24,6 @@ const Page = () => {
     setNotification(false);
   };
 
-  const darkModeImage =
-    'https://i.imgur.com/p7EcJ3x.jpeg';
-  
-  const lightModeImage =
-    'https://i.imgur.com/Jx2FtKe.png';
-
-  const imageSize = { width: '637px', height: '258px' }; // Tamaño de la primera imagen
 
   return (
     <Layout>
@@ -51,14 +44,7 @@ const Page = () => {
           />
         </Box>
       )} */}
-      <Box align="center" my={4}>
-        <Image
-          src={colorMode === 'dark' ? darkModeImage : lightModeImage}
-          borderRadius="md"
-          alt="Image"
-          {...imageSize} // Aplicar el tamaño de la imagen como propiedades de estilo
-        />
-      </Box>
+      
 
       <Box
         borderRadius="lg"
@@ -107,9 +93,8 @@ const Page = () => {
           or projects that I have in mind so that I can become a full-stack
           developer in the near future. I'm currently based in Monterrey
           studying Data Science and Mathematics focused mainly
-          on artificial intelligence. At the moment I don't have any formal work
-          experience, however as a FIRST ALUMNI I can say that teamwork is not
-          something that bothers me at all.
+          on artificial intelligence. At the moment I work at Tecnologico de Monterrey
+          as a Data Analysis Intern, however I'm open to new offers.
         </Paragraph>
         <h>‎</h>
 
