@@ -9,7 +9,7 @@ const Work = () => {
         <Layout title="HackMTY 2024">
             <Container marginTop={10}>
                 <Title>
-                    HackMTY 2024 - Softtek Challenge <Badge>09/25/2023</Badge>
+                    HackMTY 2024 - Softtek Challenge <Badge>09/15/2024</Badge>
                 </Title>
                 <P>
                     In this edition of HackMTY, sponsored by Softtek, they gave us a challenge to create a free project using computer vision with AI.
