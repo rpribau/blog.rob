@@ -12,6 +12,7 @@ import thumbvoltec from "../public/images/3.png";
 import thumbcommunity from "../public/images/4.png";
 import thumbignition from "../public/images/ignition.png";
 import thumbhackmty2024 from "../public/images/hackmty2024.png";
+import thumbsima from "../public/images/sima.png"
 
 const Works = () => {
     return (
@@ -35,8 +36,8 @@ const Works = () => {
             </Heading>
             <SimpleGrid columns={[1,1,1]} gap={6}>
             <Section>
-            <WorkGridItem id="hackmty2024" title="HackMTY 2024 - AgriSense" thumbnail={thumbhackmty2024}>
-                A tool for plant detection and care with leverage technologies such as computer vision and AI to identify and monitor plant health.
+            <WorkGridItem id="sima" title="Air Quality Forecasting System in the Metropolitan Area of Monterrey" thumbnail={thumbsima}>
+                Forecast predictive models using binomial logistic regression and random forest for each monitoring station in the northern zone of Monterrey's metropolitan area.
             </WorkGridItem>
             </Section>
         </SimpleGrid>
@@ -47,6 +48,12 @@ const Works = () => {
               Old work:
         </Heading>
         <SimpleGrid columns={[1,1,2]} gap={6}>
+        
+        <Section>
+            <WorkGridItem id="hackmty2024" title="HackMTY 2024 - AgriSense" thumbnail={thumbhackmty2024}>
+                A tool for plant detection and care with leverage technologies such as computer vision and AI to identify and monitor plant health.
+            </WorkGridItem>
+        </Section>
         
         <Section>
             <WorkGridItem id="ignition" title="Ignition Hack - StudyMetrics" thumbnail={thumbignition}>

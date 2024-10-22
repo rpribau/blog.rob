@@ -6,66 +6,66 @@ import Layout from "../../components/layouts/article";
 
 const Work = () => {
     return (
-        <Layout title="Vanttec - SDV Vision">
+        <Layout title="Air Quality Forecasting System in the Metropolitan Area of Monterrey">
             <Container marginTop={10}>
                 <Title>
-                    Vanttec - SDV Vision <Badge>2024 - Present</Badge>
+                    Air Quality Forecasting System in the Metropolitan Area of Monterrey <Badge>10/21/2024</Badge>
                 </Title>
                 <P>
-                    I'm currently working on the SDV (Self-Driving Vehicle) project, creating Computer Vision 
-                    tools to help the vehicle to understand the environment around it. My main goal is to rewrite
-                    current code made in Python to C++ to improve the performance of the tools. Also, that
-                    includes create new nodes that activates parts of the SDV using ROS2. Some parts of the
-                    code I'm working is not <b>available to the public yet</b>, but some tests I've made are 
-                    available on my GitHub.
+                    A couple of partners and I, developed predictive models using binomial logistic regression and random forest to analyze 
+                    pollutants like PM10, PM2.5, CO, O₃, NO₂, and SO₂ for air quality monitoring stations in the northern zone of Monterrey's 
+                    metropolitan area, based on data from Nuevo León's atmospheric monitoring system.
                 </P>
+
+                <P>
+                    The project posed a significant challenge, as I aimed to create more than just a simple forecast model, which many may not fully 
+                    understand or be familiar with. Inspired by the potential impact, I developed a new website for the Sistema Integral de Monitoreo 
+                    Ambiental (SIMA), offering a more user-friendly portal. This platform provides valuable information for Monterrey residents who are 
+                    curious about air quality and wish to stay informed about the government's latest air pollution policies.
+                </P>
+
+                <P>
+                    During the development of the new SIMA website, I also took on the task of creating a REST API from scratch to fetch the real-time 
+                    data published by SIMA. This was a necessary step due to the specific way their Apache servers handle and capture information. By 
+                    designing this API, I ensured seamless integration of the latest data into the website, allowing users to access up-to-date information 
+                    on air quality and government actions. The API improved the efficiency and accuracy of data retrieval, aligning with the goal of making 
+                    the portal a more reliable and user-friendly resource for the public.
+                </P>
+                <Heading as="h4" fontSize={18} my={8}>
+                <Center>
+                    This is just the beginning, as I'll be showcasing this project at ExpoIngenierías this November. Stay tuned for more updates!
+                </Center>
+                </Heading>
                 <List ml={4} my={4}>
                     <ListItem>
-                        <Meta>About Vanttec</Meta>
-                        <Link href="https://direct.me/vanttec" ml={2}>
-                        https://direct.me/vanttec <ExternalLinkIcon mx="2px" />
+                        <Meta>Website</Meta>
+                        <Link href="https://sima-nuevoleon-ai.vercel.app" ml={2}>
+                        https://sima-nuevoleon-ai.vercel.app <ExternalLinkIcon mx="2px" />
                     </Link>
                     </ListItem>
                     
-                    <ListItem>
-                        <Meta>GitHub Repo</Meta>
-                        <Link href="https://github.com/rpribau/ros2_opencv_cpp" ml={2}>
-                        https://github.com/rpribau/ros2_opencv_cpp <ExternalLinkIcon mx="2px" />
-                    </Link>
-                    </ListItem>
 
                     <ListItem>
                         <Meta>Platform</Meta>
-                        <span>  Ubuntu 22.04 LTS & Windows 11 </span>
+                        <span>  Windows 11 </span>
                     </ListItem>
 
                     <ListItem>
-                        <Meta>Stack</Meta>
-                        <span>  ROS2 Humble, OpenCV, C++, CMake, Python </span>
+                        <Meta>Front end</Meta>
+                        <span> Next.js, Streamlit </span>
                     </ListItem>
+
+                    <ListItem>
+                        <Meta>Back end</Meta>
+                        <span> Scikit-learn, R</span>
+                    </ListItem>
+
+
                 </List>
-
-                <Heading as="h4" fontSize={18} my={8}>
-                    <Center> Media</Center>
-                </Heading>
-
-                <AspectRatio maxW="560px" ratio={1} my={4}>
-                    <iframe 
-                        width="560" 
-                        height="55" 
-                        src="https://www.youtube.com/embed/a_qDwYcEesU?si=ibVcz1BYYQ0bbgtT" 
-                        title="YouTube video player" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
-                        allowfullscreen>
-                    </iframe>
-                </AspectRatio>
                 
             </Container>
         </Layout>
     )
 }
-
 
 export default Work;
