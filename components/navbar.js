@@ -23,7 +23,7 @@ import {
 import { HamburgerIcon } from '@chakra-ui/icons'
 import { ThemeToggleButton } from './theme-toggle-button.js'
 import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io'
-// import LanguageMenu from './translate-toggle-button.js' # Algun dia pondre la pagina en español... algun dia...
+// import LanguageMenu from './translate-toggle-button.js' # Algun dia pondre la pagina en español... algun dia..
 
 const LinkItem = ({ href, path, target, children, ...props }) => {
   const active = useColorModeValue('purple.500')
