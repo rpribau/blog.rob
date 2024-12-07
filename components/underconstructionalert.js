@@ -14,7 +14,7 @@ const UnderConstructionAlert = () => {
       fontSize="sm"
     >
       <AlertIcon color={iconColor} />
-      In the mean time, my GitHub is currently not working properly due to an flag error... sorry about that.
+      The webpage is going to recieve a major visual update soon. Stay tuned!
     </Alert>
   );
 };
