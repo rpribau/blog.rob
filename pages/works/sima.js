@@ -33,9 +33,19 @@ const Work = () => {
                 </P>
                 <Heading as="h4" fontSize={18} my={8}>
                 <Center>
-                    This is just the beginning, as I'll be showcasing this project at ExpoIngenierías this November. Stay tuned for more updates!
+                    Update: ExpoIngeniría 2024
                 </Center>
                 </Heading>
+                <P>
+                    The SIMA project was selected by our professors to be presented at ExpoIngeniería 2024, an semestrally event where students showcase
+                    their projects to the public. The project was well received by the audience, and we were able to demonstrate the website and the
+                    predictive models to the public. The project was also presented to the SIMA team, who were impressed by the work done and to multiple
+                    organizations in the area, who were interested in the project not only to monitor Monterrey's air quality but also to implement it in
+                    other cities in Mexico. In my opinion, the project was a success, and I am proud of the work done by my partners and me.
+                </P>
+                    
+                
+
                 <List ml={4} my={4}>
                     <ListItem>
                         <Meta>Website</Meta>
@@ -57,7 +67,7 @@ const Work = () => {
 
                     <ListItem>
                         <Meta>Back end</Meta>
-                        <span> Scikit-learn, R</span>
+                        <span> Scikit-learn, R, Python, Streamlit</span>
                     </ListItem>
 
 

@@ -47,7 +47,8 @@ const Works = () => {
             <Divider my={6} />
               Old work:
         </Heading>
-        <SimpleGrid columns={[1,1,2]} gap={6}>
+        
+        <SimpleGrid columns={[1,1,1]} gap={6}>
         
         <Section>
             <WorkGridItem id="hackmty2024" title="HackMTY 2024 - AgriSense" thumbnail={thumbhackmty2024}>
