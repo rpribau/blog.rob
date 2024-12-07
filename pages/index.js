@@ -29,7 +29,7 @@ const Page = () => {
     <Layout>
     <Container>
       <h>‎</h>                                     {/*Just a temporal solution...*/}
-      {/* {showNotification && (
+      {showNotification && (
         <Box p={4} bg="yellow.200" rounded="md" mb={4} position="relative">
           <Box>
             <UnderConstructionAlert />
@@ -43,7 +43,7 @@ const Page = () => {
             onClick={handleNotificationClose}
           />
         </Box>
-      )} */}
+      )}
       
 
       <Box
