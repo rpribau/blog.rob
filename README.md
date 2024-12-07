@@ -1,21 +1,36 @@
-# My Personal Portfolio and Blog
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-![alt text](https://i.imgur.com/gGRQc3v.png)
+## Getting Started
 
-This is one hobby that I really wanted to develop mostly because I'm not good at communicate with a lot of people. Most of the times I prefer to stay quiet and don't say my opinion or even trying not to let people know about me. I'm not used to use Javascript (Js) nor Next.js or even using an UI tool such as Chakra UI, the main magic behind this webpage.
+First, run the development server:
 
-**Update 6/23/2024**
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-It's been almost a year that I have created my website and this last year a learned a lot of ChakraUI and the only thing I can say is one thing: **is WAY better than TailWindCSS** and every variant. I simply can stop recommend this library for web development. It doesn't get short compared to other libraries and it's super easy to understand ones you understand it.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Tools used
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-The main tools I'm using are:
-  - VS Code
-  - Next.js
-  - Chakra UI
-  - Vercel (deploy website)
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Learn More
 
+To learn more about Next.js, take a look at the following resources:
 
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
