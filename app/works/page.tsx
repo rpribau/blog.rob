@@ -40,7 +40,7 @@ export default function WorksPage() {
           </CardHeader>
           <CardContent>
             <p className="mb-4">
-              Forecast predictive models using binomial logistic regression and random forest for each monitoring station in the northern zone of Monterrey's metropolitan area.
+              Forecast predictive models using binomial logistic regression and random forest for each monitoring station in the northern zone of Monterrey&apos;s metropolitan area.
             </p>
             <Button>Learn more</Button>
           </CardContent>
