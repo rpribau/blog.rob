@@ -1,0 +1,19 @@
+{
+    "NavbarLinks": {
+        "Home": "Inicio",
+        "Works": "Proyectos",
+        "CV": "CV",
+        "Blog": "Blog"
+    },
+
+    "PopUp": {
+        "Content": "Bienvenido a la nueva versión de mi sitio web desarrollado con Next.js 15 y Shadcn."
+    },
+
+    "Home": {
+        "Title": "¡Hola, soy un estudiante del Tecnológico de Monterrey ubicado en México!",
+        "About": "Sobre mí",
+        "Content": "Soy un desarrollador independiente que trata de aprender según mis necesidades o proyectos que tengo en mente para poder convertirme en un desarrollador full-stack en un futuro cercano. Actualmente estoy en Monterrey estudiando Ciencia de Datos y Matemáticas enfocado principalmente en inteligencia artificial. Por el momento trabajo en el Tecnológico de Monterrey como practicante de Análisis de Datos, sin embargo estoy abierto a nuevas ofertas.",
+        "Button": "Más Sobre Mí"
+    }
+}

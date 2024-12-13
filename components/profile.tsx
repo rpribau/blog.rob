@@ -28,7 +28,7 @@ export function Profile() {
         </div>
 
         <div className="space-y-4 md:flex-1">
-          <h2 className="text-2xl font-bold text-maroon dark:text-coral">Work</h2>
+          <h2 className="text-2xl font-bold text-maroon dark:text-coral">About me</h2>
           <p className="text-lg leading-relaxed text-charcoal dark:text-sage">
             I&apos;m an independent developer who tries to learn according to my needs or
             projects that I have in mind so that I can become a full-stack developer

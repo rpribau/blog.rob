@@ -1,5 +1,11 @@
 import { Profile } from "@/components/profile"
 import { NotificationBanner } from "@/components/notification-banner"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Home - Roberto Priego Bautista",
+  description: "Personal portfolio of Roberto Priego Bautista",
+}
 
 export default function Home() {
   return (
