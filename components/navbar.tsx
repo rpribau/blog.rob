@@ -13,7 +13,9 @@ export function Navbar() {
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-6">
-            <MonitorSmartphone className="h-6 w-6 text-primary" />
+            <Link href="/">
+              <MonitorSmartphone className="h-6 w-6 text-primary" />
+            </Link>
             <nav className="flex items-center gap-6">
               <Link 
                 href="/about"
