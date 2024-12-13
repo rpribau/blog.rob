@@ -1,4 +1,3 @@
-import { Navbar } from "@/components/navbar"
 import { Profile } from "@/components/profile"
 import { NotificationBanner } from "@/components/notification-banner"
 
