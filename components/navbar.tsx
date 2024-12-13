@@ -29,12 +29,13 @@ export function Navbar() {
               >
                 Works
               </Link>
-              <Link 
-                href="/cv"
+                <Link 
+                href="https://drive.google.com/file/d/1AiZ90eZdwhVPDhv1rCrKPaUBPbeG1v0Z/view?usp=sharing"
+                target="_blank"
                 className="text-sm font-medium transition-colors hover:text-primary"
-              >
+                >
                 CV
-              </Link>
+                </Link>
               <div className="relative">
                 <Link 
                   href="/blog"

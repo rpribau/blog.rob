@@ -37,7 +37,7 @@ const geist = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "Roberto Priego Bautista",
+  title: "Home - Roberto Priego Bautista",
   description: "Personal portfolio of Roberto Priego Bautista",
 }
 

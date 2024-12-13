@@ -11,12 +11,12 @@ export function NotificationBanner() {
   if (!isVisible) return null
 
   return (
-    <Alert className="mb-6 bg-yellow-100 dark:bg-yellow-900">
+    <Alert className="mb-6 bg-green-100 dark:bg-yellow-900">
       <AlertDescription className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <span>⚠️</span>
+            <span className="text-xl">🎉</span>
           <span>
-            The webpage is going to receive a major visual update soon. Stay tuned!
+            Welcome to the new version of my website powered by Next.js 15 and Shadcn.
           </span>
         </div>
         <Button

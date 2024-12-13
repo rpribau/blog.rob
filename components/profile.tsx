@@ -15,8 +15,8 @@ export function Profile() {
       
       <div className="flex flex-col gap-8 md:flex-row md:items-start">
         <div className="flex flex-col items-center space-y-4 text-center md:items-start md:text-left md:flex-1">
-          <Avatar className="h-32 w-32 border-4 border-maroon dark:border-coral">
-            <AvatarImage src="/placeholder.svg" alt="Profile" />
+          <Avatar className="h-64 w-64 border-4 border-maroon dark:border-coral">
+            <AvatarImage src="https://i.imgur.com/r5TFEGw.jpg" alt="Profile" />
             <AvatarFallback className="bg-sage text-sand">RP</AvatarFallback>
           </Avatar>
           <div className="space-y-2">
