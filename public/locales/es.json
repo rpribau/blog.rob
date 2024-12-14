@@ -1,0 +1,10 @@
+{
+    "notificationMessage": "Bienvenido a la nueva versión de mi sitio web impulsado por Next.js 15 y Shadcn.",
+    "close": "Cerrar",
+    "greeting": "¡Hola, soy estudiante del Tecnológico de Monterrey en México!",
+    "profileImageAlt": "Perfil",
+    "shortBio": "@rpribau (Desarrollador / Apasionado por STEM / Alumni de FIRST)",
+    "aboutMeTitle": "Sobre mí",
+    "aboutMeDescription": "Soy un desarrollador independiente que intenta aprender de acuerdo a mis necesidades o proyectos que tengo en mente para poder convertirme en un desarrollador full-stack en un futuro cercano. Actualmente estoy en Monterrey estudiando Ciencia de Datos y Matemáticas enfocado principalmente en inteligencia artificial. En este momento trabajo en el Tecnológico de Monterrey como practicante en Análisis de Datos, sin embargo, estoy abierto a nuevas ofertas.",
+    "moreAboutMe": "Más Sobre Mí"
+  }

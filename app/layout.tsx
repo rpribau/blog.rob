@@ -3,6 +3,7 @@ import localFont from 'next/font/local'
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Navbar } from "@/components/navbar"
+import { LanguageProvider } from "@/contexts/LanguageContext"
 
 // Load the custom Geist font with multiple weights
 const geist = localFont({
@@ -49,17 +50,19 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geist.variable} font-sans antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          <main className="container mx-auto px-4 py-8 max-w-5xl pt-20">
-            {children}
-          </main>
-        </ThemeProvider>
+        <LanguageProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Navbar />
+            <main className="container mx-auto px-4 py-8 max-w-5xl pt-20">
+              {children}
+            </main>
+          </ThemeProvider>
+        </LanguageProvider>
       </body>
     </html>
   )

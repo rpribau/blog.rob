@@ -4,9 +4,11 @@ import { useState } from "react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { X } from 'lucide-react'
 import { Button } from "@/components/ui/button"
+import { useTranslation } from '@/hooks/useTranslation'
 
 export function NotificationBanner() {
   const [isVisible, setIsVisible] = useState(true)
+  const { t } = useTranslation()
 
   if (!isVisible) return null
 
@@ -16,7 +18,7 @@ export function NotificationBanner() {
         <div className="flex items-center gap-2">
             <span className="text-xl">🎉</span>
           <span>
-            Welcome to the new version of my website powered by Next.js 15 and Shadcn.
+            {t('notificationMessage')}
           </span>
         </div>
         <Button
@@ -26,7 +28,7 @@ export function NotificationBanner() {
           className="h-4 w-4 p-0"
         >
           <X className="h-4 w-4" />
-          <span className="sr-only">Close</span>
+          <span className="sr-only">{t('close')}</span>
         </Button>
       </AlertDescription>
     </Alert>
