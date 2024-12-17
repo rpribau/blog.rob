@@ -14,7 +14,7 @@ const UnderConstructionAlert = () => {
       fontSize="sm"
     >
       <AlertIcon color={iconColor} />
-      The webpage is going to recieve a major visual update soon. Stay tuned!
+      The webpage is going to receive a major visual update soon. Stay tuned!
     </Alert>
   );
 };
