@@ -5,21 +5,10 @@ import { remark } from 'remark'
 import html from 'remark-html'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
-interface PostData {
-  title: string
-  date: string
-  description: string
-  category: string
-  author: string
-  authorImage?: string
-  readingTime?: string
-  content: string
-}
 
 export async function generateStaticParams() {
   const postsDirectory = path.join(process.cwd(), 'public', 'posts')
@@ -45,12 +34,12 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
   let fileContents: string
   try {
     fileContents = await fs.readFile(fullPath, 'utf8')
-  } catch (error) {
+  } catch {
     notFound()
   }
 
   const { data, content } = matter(fileContents)
-  const readingTime = getReadingTime(content)
+
 
   const processedContent = await remark()
     .use(html)
