@@ -23,7 +23,7 @@ export function Navbar() {
             </Link>
             <nav className="flex items-center gap-3">
               <Link 
-                href="/about"
+                href="/"
                 className="text-sm font-medium transition-colors hover:text-primary"
               >
                 {t('about')}

@@ -77,6 +77,7 @@ export default function BlogPage() {
 
   return (
     <div className="space-y-8">
+      <main className="container mx-auto px-4 py-8 max-w-3xl">
       {posts.map(post => (
         <Card key={post.slug} className="overflow-hidden">
           <CardContent className="p-6">
@@ -121,6 +122,7 @@ export default function BlogPage() {
           </CardContent>
         </Card>
       ))}
+      </main>
     </div>
   )
 }
