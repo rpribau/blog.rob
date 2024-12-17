@@ -55,6 +55,33 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Additional typography improvements */
+  .prose {
+    @apply text-foreground;
+    font-feature-settings: "liga" 1, "kern" 1;
+  }
+  
+  .prose p {
+    @apply text-base leading-7 mt-2 mb-6;
+  }
+  
+  .prose ul {
+    @apply my-6 ml-6 list-disc [&>li]:mt-2;
+  }
+  
+  .prose h1 {
+    @apply text-foreground font-bold tracking-tight leading-10 text-3xl;
+  }
+  
+  .prose h2 {
+    @apply text-foreground font-bold tracking-tight leading-9 text-2xl;
+  }
+  
+  .prose h3 {
+    @apply text-foreground font-bold tracking-tight leading-8;
   }
 }
 
