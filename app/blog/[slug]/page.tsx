@@ -19,13 +19,6 @@ export async function generateStaticParams() {
   }))
 }
 
-function getReadingTime(content: string): string {
-  const wordsPerMinute = 200;
-  const words = content.trim().split(/\s+/).length;
-  const minutes = Math.ceil(words / wordsPerMinute);
-  return `${minutes} min read`;
-}
-
 export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const postsDirectory = path.join(process.cwd(), 'public', 'posts')
