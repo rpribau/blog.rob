@@ -12,7 +12,6 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft, Github, ExternalLink } from 'lucide-react'
 import { Badge } from "@/components/ui/badge"
 
-
 interface ProjectData {
   title: string
   description: string
@@ -25,6 +24,8 @@ interface ProjectData {
     live?: string | null
   }
 }
+
+type Params = Promise<{ slug: string }>;
 
 export async function generateStaticParams() {
   const projectsDirectory = path.join(process.cwd(), 'public', 'projects');
@@ -40,15 +41,10 @@ export async function generateStaticParams() {
   }
 }
 
-export default async function Project({
-  params,
-}: {
-  params: { slug: string } | Promise<{ slug: string }>
-}) {
-  const resolvedParams = await Promise.resolve(params);
-  
+export default async function Project({ params }: { params: Params }) {
+  const { slug } = await params;
   const projectsDirectory = path.join(process.cwd(), 'public', 'projects')
-  const fullPath = path.join(projectsDirectory, `${resolvedParams.slug}.md`)
+  const fullPath = path.join(projectsDirectory, `${slug}.md`)
 
   let fileContents: string
   try {
@@ -73,9 +69,9 @@ export default async function Project({
     },
   };
 
-  const processedContent = remark()
+  const processedContent = await remark()
     .use(html)
-    .processSync(content)
+    .process(content)
   const contentHtml = processedContent.toString()
 
   return (
