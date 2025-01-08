@@ -10,6 +10,19 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft, Github, ExternalLink } from 'lucide-react'
 import { Badge } from "@/components/ui/badge"
 
+interface ProjectData {
+  title: string
+  description: string
+  image: string
+  logo: string
+  date: string
+  tags: string[]
+  links: {
+    github: string
+    live?: string | null
+  }
+}
+
 export async function generateStaticParams() {
   const projectsDirectory = path.join(process.cwd(), 'public', 'projects');
 
@@ -24,11 +37,9 @@ export async function generateStaticParams() {
   }
 }
 
-
 export default async function Project({ params }: { params: { slug: string } }) {
-  const { slug } = await params
   const projectsDirectory = path.join(process.cwd(), 'public', 'projects')
-  const fullPath = path.join(projectsDirectory, `${slug}.md`)
+  const fullPath = path.join(projectsDirectory, `${params.slug}.md`)
 
   let fileContents: string
   try {
@@ -37,16 +48,14 @@ export default async function Project({ params }: { params: { slug: string } }) 
     console.error(`Error reading file at ${fullPath}:`, error);
     notFound();
   }
-  
 
   const { data, content } = matter(fileContents);
 
-  // Validación de campos necesarios
-  const projectData = {
+  const projectData: ProjectData = {
     title: data.title || 'Untitled Project',
     description: data.description || '',
-    image: data.image || 'https://placehold.co/800x450',
-    logo: data.logo || 'https://placehold.co/40x40',
+    image: data.image || '/placeholder.svg?height=800&width=1200',
+    logo: data.logo || '/placeholder.svg?height=40&width=40',
     date: data.date || new Date().toISOString(),
     tags: Array.isArray(data.tags) ? data.tags : [],
     links: {
@@ -54,7 +63,6 @@ export default async function Project({ params }: { params: { slug: string } }) 
       live: data.links?.live || null,
     },
   };
-
 
   const processedContent = await remark()
     .use(html)
@@ -72,21 +80,20 @@ export default async function Project({ params }: { params: { slug: string } }) 
       <article>
         <header className="mb-8">
           <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-4">
-            {data.title}
+            {projectData.title}
           </h1>
 
-          {data.description && (
+          {projectData.description && (
             <p className="text-xl text-muted-foreground mb-8">
-              {data.description}
+              {projectData.description}
             </p>
           )}
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
-          
             <div className="text-sm text-muted-foreground">
               Published on{' '}
-              <time dateTime={data.date}>
-                {new Date(data.date).toLocaleDateString('en-US', {
+              <time dateTime={projectData.date}>
+                {new Date(projectData.date).toLocaleDateString('en-US', {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric'
@@ -96,7 +103,7 @@ export default async function Project({ params }: { params: { slug: string } }) 
           </div>
 
           <div className="flex flex-wrap gap-2 mb-6">
-            {data.tags.map((tag: string) => (
+            {projectData.tags.map((tag: string) => (
               <Badge key={tag} variant="secondary">
                 {tag}
               </Badge>
@@ -104,15 +111,17 @@ export default async function Project({ params }: { params: { slug: string } }) 
           </div>
 
           <div className="flex gap-4 mb-8">
-            <Button variant="outline" size="sm" asChild>
-              <a href={data.links.github} target="_blank" rel="noopener noreferrer">
-                <Github className="mr-2 h-4 w-4" />
-                GitHub
-              </a>
-            </Button>
-            {data.links.live && (
+            {projectData.links.github && (
+              <Button variant="outline" size="sm" asChild>
+                <a href={projectData.links.github} target="_blank" rel="noopener noreferrer">
+                  <Github className="mr-2 h-4 w-4" />
+                  GitHub
+                </a>
+              </Button>
+            )}
+            {projectData.links.live && (
               <Button size="sm" asChild>
-                <a href={data.links.live} target="_blank" rel="noopener noreferrer">
+                <a href={projectData.links.live} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-2 h-4 w-4" />
                   Live Demo
                 </a>
@@ -122,12 +131,12 @@ export default async function Project({ params }: { params: { slug: string } }) 
         </header>
 
         <div className="relative aspect-video mb-8">
-        <Image
-          src={projectData.image}
-          alt={projectData.title}
-          fill
-          className="object-cover rounded-lg"
-        />
+          <Image
+            src={projectData.image}
+            alt={projectData.title}
+            fill
+            className="object-cover rounded-lg"
+          />
         </div>
 
         <div 
