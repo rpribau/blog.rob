@@ -2,9 +2,16 @@ import fs from 'fs'
 import path from 'path'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+} from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import { Github, ExternalLink } from 'lucide-react'
 
 interface Project {
@@ -23,35 +30,44 @@ interface Project {
 }
 
 function parseFrontMatter(content: string): Record<string, any> {
-  const frontMatterRegex = /^---\s*\n([\s\S]*?)\n---/;
-  const match = content.match(frontMatterRegex);
-  
-  if (!match) return {};
+  const frontMatterRegex = /^---\s*\n([\s\S]*?)\n---/
+  const match = content.match(frontMatterRegex)
 
-  const frontMatter = match[1];
-  const data: Record<string, any> = {};
-  
-  frontMatter.split('\n').forEach(line => {
-    const [key, ...valueParts] = line.split(':');
+  if (!match) return {}
+
+  const frontMatter = match[1]
+  const data: Record<string, any> = {}
+
+  frontMatter.split('\n').forEach((line) => {
+    const [key, ...valueParts] = line.split(':')
     if (key && valueParts.length) {
-      let value = valueParts.join(':').trim();
+      let value = valueParts.join(':').trim()
+
+      // Remover comillas sobrantes en valores
+      if (value.startsWith('"') && value.endsWith('"')) {
+        value = value.slice(1, -1)
+      }
+
       // Parse arrays
       if (value.startsWith('[') && value.endsWith(']')) {
-        value = value.slice(1, -1).split(',').map(item => item.trim());
+        value = value
+          .slice(1, -1)
+          .split(',')
+          .map((item) => item.trim())
       }
       // Parse booleans
       else if (value === 'true' || value === 'false') {
-        value = value === 'true';
+        value = value === 'true'
       }
       // Parse nested objects
       else if (value.startsWith('{') && value.endsWith('}')) {
-        value = JSON.parse(value);
+        value = JSON.parse(value)
       }
-      data[key.trim()] = value;
+      data[key.trim()] = value
     }
-  });
+  })
 
-  return data;
+  return data
 }
 
 export default function ProjectsPage() {
@@ -62,35 +78,34 @@ export default function ProjectsPage() {
     if (fs.existsSync(projectsDirectory)) {
       const filenames = fs.readdirSync(projectsDirectory)
 
-      projects = filenames.map(filename => {
+      projects = filenames.map((filename) => {
         const filePath = path.join(projectsDirectory, filename)
         const fileContents = fs.readFileSync(filePath, 'utf8')
         const frontMatter = parseFrontMatter(fileContents)
-        
+
         const project: Project = {
           slug: filename.replace('.md', ''),
           title: frontMatter.title || filename,
           description: frontMatter.description || '',
-          image: frontMatter.image?.startsWith('/') || frontMatter.image?.startsWith('http')
+          image: frontMatter.image?.startsWith('/')
             ? frontMatter.image
-            : '',
-          logo: frontMatter.logo?.startsWith('/') || frontMatter.logo?.startsWith('http')
+            : `/${frontMatter.image}`,
+          logo: frontMatter.logo?.startsWith('/')
             ? frontMatter.logo
-            : '',
+            : `/${frontMatter.logo}`,
           date: frontMatter.date || '',
           tags: frontMatter.tags || [],
           featured: frontMatter.featured || false,
           links: frontMatter.links || { github: '' },
-        };
-        
+        }
 
-        return project;
+        return project
       })
     } else {
-      console.warn("Projects directory does not exist:", projectsDirectory)
+      console.warn('Projects directory does not exist:', projectsDirectory)
     }
   } catch (error) {
-    console.error("Error reading projects directory:", error)
+    console.error('Error reading projects directory:', error)
   }
 
   if (projects.length === 0) {
@@ -106,7 +121,7 @@ export default function ProjectsPage() {
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold mb-8 text-center">Projects</h1>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {projects.map(project => (
+        {projects.map((project) => (
           <Card key={project.slug} className="overflow-hidden flex flex-col">
             <div className="relative h-48">
               <Image
@@ -137,7 +152,7 @@ export default function ProjectsPage() {
             </CardHeader>
             <CardContent className="flex-grow">
               <div className="flex flex-wrap gap-2 mb-2">
-                {project.tags.map(tag => (
+                {project.tags.map((tag) => (
                   <Badge key={tag} variant="secondary">
                     {tag}
                   </Badge>
@@ -147,7 +162,7 @@ export default function ProjectsPage() {
                 {new Date(project.date).toLocaleDateString('en-US', {
                   year: 'numeric',
                   month: 'long',
-                  day: 'numeric'
+                  day: 'numeric',
                 })}
               </p>
             </CardContent>
@@ -179,11 +194,9 @@ export default function ProjectsPage() {
                 </Button>
               )}
             </CardFooter>
-
           </Card>
         ))}
       </div>
     </div>
   )
 }
-

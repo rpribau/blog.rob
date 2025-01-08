@@ -1,10 +1,10 @@
 ---
 title: "E-commerce Platform"
 description: "A modern e-commerce platform built with Next.js and Stripe integration."
-image: "/placeholder.svg?height=400&width=600"
-logo: "/placeholder.svg?height=40&width=40"
+image: "/images/ignitionhack.png"
+logo: "/logos/devpost.ico"
 date: "2024-01-07"
-tags: ["Next.js", "TypeScript", "Stripe", "Tailwind"]
+tags: [Next.js, TypeScript, Stripe, Tailwind]
 featured: true
 links:
   github: "https://github.com/username/ecommerce"

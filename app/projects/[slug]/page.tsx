@@ -11,27 +11,50 @@ import { ArrowLeft, Github, ExternalLink } from 'lucide-react'
 import { Badge } from "@/components/ui/badge"
 
 export async function generateStaticParams() {
-  const projectsDirectory = path.join(process.cwd(), 'public', 'projects')
-  const filenames = fs.readdirSync(projectsDirectory)
+  const projectsDirectory = path.join(process.cwd(), 'public', 'projects');
 
-  return filenames.map(filename => ({
-    slug: filename.replace('.md', ''),
-  }))
+  try {
+    const filenames = fs.readdirSync(projectsDirectory);
+    return filenames.map(filename => ({
+      slug: filename.replace('.md', ''),
+    }));
+  } catch (error) {
+    console.error('Error reading projects directory:', error);
+    return [];
+  }
 }
 
+
 export default async function Project({ params }: { params: { slug: string } }) {
-  const { slug } = params
+  const { slug } = await params
   const projectsDirectory = path.join(process.cwd(), 'public', 'projects')
   const fullPath = path.join(projectsDirectory, `${slug}.md`)
 
   let fileContents: string
   try {
-    fileContents = fs.readFileSync(fullPath, 'utf8')
-  } catch {
-    notFound()
+    fileContents = fs.readFileSync(fullPath, 'utf8');
+  } catch (error) {
+    console.error(`Error reading file at ${fullPath}:`, error);
+    notFound();
   }
+  
 
-  const { data, content } = matter(fileContents)
+  const { data, content } = matter(fileContents);
+
+  // Validación de campos necesarios
+  const projectData = {
+    title: data.title || 'Untitled Project',
+    description: data.description || '',
+    image: data.image || 'https://placehold.co/800x450',
+    logo: data.logo || 'https://placehold.co/40x40',
+    date: data.date || new Date().toISOString(),
+    tags: Array.isArray(data.tags) ? data.tags : [],
+    links: {
+      github: data.links?.github || '',
+      live: data.links?.live || null,
+    },
+  };
+
 
   const processedContent = await remark()
     .use(html)
@@ -59,17 +82,7 @@ export default async function Project({ params }: { params: { slug: string } }) 
           )}
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
-            <div className="flex items-center gap-2">
-              <Image
-                src={data.logo || 'https://placehold.co/40x40'}
-                alt={`${data.title} logo`}
-                width={40}
-                height={40}
-                className="rounded-full"
-              />
-              <span className="font-medium">{data.title}</span>
-            </div>
-            
+          
             <div className="text-sm text-muted-foreground">
               Published on{' '}
               <time dateTime={data.date}>
@@ -109,12 +122,12 @@ export default async function Project({ params }: { params: { slug: string } }) 
         </header>
 
         <div className="relative aspect-video mb-8">
-          <Image
-            src={data.image}
-            alt={data.title}
-            fill
-            className="object-cover rounded-lg"
-          />
+        <Image
+          src={projectData.image}
+          alt={projectData.title}
+          fill
+          className="object-cover rounded-lg"
+        />
         </div>
 
         <div 
