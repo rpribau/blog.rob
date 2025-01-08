@@ -43,27 +43,39 @@ function parseFrontMatter(content: string): Record<string, any> {
     if (key && valueParts.length) {
       let value = valueParts.join(':').trim()
 
-      // Remover comillas sobrantes en valores
+      // Remove quotes if present
       if (value.startsWith('"') && value.endsWith('"')) {
         value = value.slice(1, -1)
       }
 
-      // Parse arrays
-      if (value.startsWith('[') && value.endsWith(']')) {
-        value = value
-          .slice(1, -1)
-          .split(',')
-          .map((item) => item.trim())
+      // Handle different value types
+      const trimmedKey = key.trim()
+      
+      if (trimmedKey === 'tags') {
+        // Always return an array for tags
+        if (value.startsWith('[') && value.endsWith(']')) {
+          data[trimmedKey] = value
+            .slice(1, -1)
+            .split(',')
+            .map((item) => item.trim())
+            .filter(Boolean)
+        } else {
+          data[trimmedKey] = [value]
+        }
+      } else if (trimmedKey === 'featured') {
+        // Convert to boolean
+        data[trimmedKey] = value.toLowerCase() === 'true'
+      } else if (value.startsWith('{') && value.endsWith('}')) {
+        // Parse JSON objects
+        try {
+          data[trimmedKey] = JSON.parse(value)
+        } catch {
+          data[trimmedKey] = {}
+        }
+      } else {
+        // Default to string
+        data[trimmedKey] = value
       }
-      // Parse booleans
-      else if (value === 'true' || value === 'false') {
-        value = value === 'true'
-      }
-      // Parse nested objects
-      else if (value.startsWith('{') && value.endsWith('}')) {
-        value = JSON.parse(value)
-      }
-      data[key.trim()] = value
     }
   })
 
@@ -83,19 +95,22 @@ export default function ProjectsPage() {
         const fileContents = fs.readFileSync(filePath, 'utf8')
         const frontMatter = parseFrontMatter(fileContents)
 
+        const defaultImage = '/placeholder.svg?height=400&width=600'
+        const defaultLogo = '/placeholder.svg?height=32&width=32'
+
         const project: Project = {
           slug: filename.replace('.md', ''),
           title: frontMatter.title || filename,
           description: frontMatter.description || '',
-          image: frontMatter.image?.startsWith('/')
-            ? frontMatter.image
-            : `/${frontMatter.image}`,
-          logo: frontMatter.logo?.startsWith('/')
-            ? frontMatter.logo
-            : `/${frontMatter.logo}`,
-          date: frontMatter.date || '',
-          tags: frontMatter.tags || [],
-          featured: frontMatter.featured || false,
+          image: frontMatter.image 
+            ? (frontMatter.image.startsWith('/') ? frontMatter.image : `/${frontMatter.image}`)
+            : defaultImage,
+          logo: frontMatter.logo 
+            ? (frontMatter.logo.startsWith('/') ? frontMatter.logo : `/${frontMatter.logo}`)
+            : defaultLogo,
+          date: frontMatter.date || new Date().toISOString(),
+          tags: Array.isArray(frontMatter.tags) ? frontMatter.tags : [],
+          featured: Boolean(frontMatter.featured),
           links: frontMatter.links || { github: '' },
         }
 
@@ -200,3 +215,4 @@ export default function ProjectsPage() {
     </div>
   )
 }
+
