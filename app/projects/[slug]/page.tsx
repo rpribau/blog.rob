@@ -44,7 +44,7 @@ export async function generateStaticParams() {
   }
 }
 
-export default function Project({ params, searchParams }: PageProps) {
+export default function Project({ params }: PageProps) {
   const projectsDirectory = path.join(process.cwd(), 'public', 'projects')
   const fullPath = path.join(projectsDirectory, `${params.slug}.md`)
 
