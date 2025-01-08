@@ -12,6 +12,11 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft, Github, ExternalLink } from 'lucide-react'
 import { Badge } from "@/components/ui/badge"
 
+interface PageProps {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
 interface ProjectData {
   title: string
   description: string
@@ -41,9 +46,8 @@ export async function generateStaticParams() {
 
 export default function Project({
   params,
-}: {
-  params: { slug: string }
-}) {
+}: PageProps) {
+  
   const projectsDirectory = path.join(process.cwd(), 'public', 'projects')
   const fullPath = path.join(projectsDirectory, `${params.slug}.md`)
 
