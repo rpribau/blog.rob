@@ -23,6 +23,13 @@ interface ProjectData {
   }
 }
 
+interface PageProps {
+  params: {
+    slug: string
+  }
+  searchParams?: { [key: string]: string | string[] | undefined }
+}
+
 export async function generateStaticParams() {
   const projectsDirectory = path.join(process.cwd(), 'public', 'projects');
 
@@ -37,7 +44,7 @@ export async function generateStaticParams() {
   }
 }
 
-export default async function Project({ params }: { params: { slug: string } }) {
+export default function Project({ params, searchParams }: PageProps) {
   const projectsDirectory = path.join(process.cwd(), 'public', 'projects')
   const fullPath = path.join(projectsDirectory, `${params.slug}.md`)
 
@@ -64,9 +71,9 @@ export default async function Project({ params }: { params: { slug: string } }) 
     },
   };
 
-  const processedContent = await remark()
+  const processedContent = remark()
     .use(html)
-    .process(content)
+    .processSync(content)
   const contentHtml = processedContent.toString()
 
   return (
