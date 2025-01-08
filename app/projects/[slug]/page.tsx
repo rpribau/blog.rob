@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
@@ -44,7 +46,7 @@ export async function generateStaticParams() {
   }
 }
 
-export default function Project({ params, _searchParams }: PageProps) {
+export default function Project({ params, searchParams }: PageProps) {
   const projectsDirectory = path.join(process.cwd(), 'public', 'projects')
   const fullPath = path.join(projectsDirectory, `${params.slug}.md`)
 
