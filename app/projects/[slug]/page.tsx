@@ -25,13 +25,6 @@ interface ProjectData {
   }
 }
 
-interface PageProps {
-  params: {
-    slug: string
-  }
-  searchParams?: { [key: string]: string | string[] | undefined }
-}
-
 export async function generateStaticParams() {
   const projectsDirectory = path.join(process.cwd(), 'public', 'projects');
 
@@ -46,7 +39,11 @@ export async function generateStaticParams() {
   }
 }
 
-export default function Project({ params, searchParams }: PageProps) {
+export default function Project({
+  params,
+}: {
+  params: { slug: string }
+}) {
   const projectsDirectory = path.join(process.cwd(), 'public', 'projects')
   const fullPath = path.join(projectsDirectory, `${params.slug}.md`)
 
