@@ -14,6 +14,22 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Github, ExternalLink } from 'lucide-react'
 
+interface ProjectLinks {
+  github: string
+  live?: string
+}
+
+interface ProjectFrontMatter {
+  title?: string
+  description?: string
+  image?: string
+  logo?: string
+  date?: string
+  tags?: string[]
+  featured?: boolean
+  links?: ProjectLinks
+}
+
 interface Project {
   slug: string
   title: string
@@ -23,20 +39,17 @@ interface Project {
   date: string
   tags: string[]
   featured: boolean
-  links: {
-    github: string
-    live?: string
-  }
+  links: ProjectLinks
 }
 
-function parseFrontMatter(content: string): Record<string, any> {
+function parseFrontMatter(content: string): ProjectFrontMatter {
   const frontMatterRegex = /^---\s*\n([\s\S]*?)\n---/
   const match = content.match(frontMatterRegex)
 
   if (!match) return {}
 
   const frontMatter = match[1]
-  const data: Record<string, any> = {}
+  const data: ProjectFrontMatter = {}
 
   frontMatter.split('\n').forEach((line) => {
     const [key, ...valueParts] = line.split(':')
@@ -49,7 +62,7 @@ function parseFrontMatter(content: string): Record<string, any> {
       }
 
       // Handle different value types
-      const trimmedKey = key.trim()
+      const trimmedKey = key.trim() as keyof ProjectFrontMatter
       
       if (trimmedKey === 'tags') {
         // Always return an array for tags
@@ -65,15 +78,16 @@ function parseFrontMatter(content: string): Record<string, any> {
       } else if (trimmedKey === 'featured') {
         // Convert to boolean
         data[trimmedKey] = value.toLowerCase() === 'true'
-      } else if (value.startsWith('{') && value.endsWith('}')) {
+      } else if (trimmedKey === 'links' && value.startsWith('{') && value.endsWith('}')) {
         // Parse JSON objects
         try {
-          data[trimmedKey] = JSON.parse(value)
+          data[trimmedKey] = JSON.parse(value) as ProjectLinks
         } catch {
-          data[trimmedKey] = {}
+          data[trimmedKey] = { github: '' }
         }
-      } else {
-        // Default to string
+      } else if (trimmedKey === 'title' || trimmedKey === 'description' || 
+                 trimmedKey === 'image' || trimmedKey === 'logo' || 
+                 trimmedKey === 'date') {
         data[trimmedKey] = value
       }
     }
