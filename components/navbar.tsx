@@ -29,7 +29,7 @@ export function Navbar() {
                 {t('about')}
               </Link>
               <Link 
-                href="/works"
+                href="/projects"
                 className="text-sm font-medium transition-colors hover:text-primary"
               >
                 {t('works')}
