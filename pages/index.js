@@ -78,7 +78,7 @@ const Page = () => {
             maxWidth="100px"
             display="inline-block"
             borderRadius="full"
-            src="https://i.imgur.com/r5TFEGw.jpg"
+            src="https://media.licdn.com/dms/image/v2/D4E03AQF2EShc2AKtQQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1678472937659?e=1742428800&v=beta&t=-yEwYcdP0x2oKLo80mv50q9gS8rc3QvEttNFUMmHtKc"
             alt="Profile Image"
           />
         </Box>
