@@ -4,7 +4,7 @@ import Link from "next/link"
 import { Github, Linkedin, MonitorSmartphone, Moon, Sun, Languages } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+// import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslation } from "@/hooks/useTranslation"
 
@@ -69,7 +69,7 @@ export function Navbar() {
             >
               <Linkedin className="h-5 w-5" />
             </Link>
-            <Popover>
+            {/* <Popover>
               <PopoverTrigger asChild>
                 <Button
                   variant="ghost"
@@ -100,7 +100,7 @@ export function Navbar() {
                   </Button>
                 </div>
               </PopoverContent>
-            </Popover>
+            </Popover> */}
             
             <Button
               variant="ghost"
