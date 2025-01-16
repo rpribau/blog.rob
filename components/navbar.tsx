@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Github, Linkedin, MonitorSmartphone, Moon, Sun, Languages } from 'lucide-react'
+import { Github, Linkedin, MonitorSmartphone, Moon, Sun } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes"
 // import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
