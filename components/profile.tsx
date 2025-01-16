@@ -21,7 +21,7 @@ export function Profile() {
       <div className="flex flex-col gap-8 md:flex-row md:items-start">
         <div className="flex flex-col items-center space-y-4 text-center md:items-start md:text-left md:flex-1">
           <Avatar className="h-64 w-64 border-4 border-maroon dark:border-coral">
-            <AvatarImage src="https://i.imgur.com/r5TFEGw.jpg" alt={t('profileImageAlt')} />
+            <AvatarImage src="https://media.licdn.com/dms/image/v2/D4E03AQF2EShc2AKtQQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1678472937659?e=1742428800&v=beta&t=-yEwYcdP0x2oKLo80mv50q9gS8rc3QvEttNFUMmHtKc" alt={t('profileImageAlt')} />
             <AvatarFallback className="bg-sage text-sand">RP</AvatarFallback>
           </Avatar>
           <div className="space-y-2">

@@ -4,6 +4,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Card, CardContent } from "@/components/ui/card"
 import { formatDate } from '@/utils/dateUtils'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "Blog - Roberto Priego Bautista",
+  description: "Personal portfolio of Roberto Priego Bautista",
+}
 
 interface Post {
   slug: string
@@ -74,6 +80,8 @@ export default function BlogPage() {
       </div>
     )
   }
+
+  
 
   return (
     <div className="space-y-8">

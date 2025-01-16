@@ -10,6 +10,7 @@ import {
   CardDescription,
 } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import type { Metadata } from 'next'
 
 
 interface ProjectLinks {
@@ -96,6 +97,11 @@ function parseFrontMatter(content: string): ProjectFrontMatter {
   })
 
   return data
+}
+
+export const metadata: Metadata = {
+  title: "Works - Roberto Priego Bautista",
+  description: "Personal portfolio of Roberto Priego Bautista",
 }
 
 export default function ProjectsPage() {
