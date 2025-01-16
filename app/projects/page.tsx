@@ -15,7 +15,7 @@ import { Button } from '@/components/ui/button'
 import { Github, ExternalLink } from 'lucide-react'
 
 interface ProjectLinks {
-  github: string
+  github?: string
   live?: string
 }
 
@@ -78,13 +78,17 @@ function parseFrontMatter(content: string): ProjectFrontMatter {
       } else if (trimmedKey === 'featured') {
         // Convert to boolean
         data[trimmedKey] = value.toLowerCase() === 'true'
-      } else if (trimmedKey === 'links' && value.startsWith('{') && value.endsWith('}')) {
-        // Parse JSON objects
-        try {
-          data[trimmedKey] = JSON.parse(value) as ProjectLinks
-        } catch {
-          data[trimmedKey] = { github: '' }
-        }
+      } else if (trimmedKey === 'links') {
+        // Parse YAML-style links
+        const links: ProjectLinks = {}
+        const linkLines = value.split('\n')
+        linkLines.forEach(line => {
+          const [key, val] = line.trim().split(':').map(s => s.trim())
+          if (key && val) {
+            links[key as keyof ProjectLinks] = val.replace(/"/g, '')
+          }
+        })
+        data[trimmedKey] = links
       } else if (trimmedKey === 'title' || trimmedKey === 'description' || 
                  trimmedKey === 'image' || trimmedKey === 'logo' || 
                  trimmedKey === 'date') {
@@ -125,7 +129,7 @@ export default function ProjectsPage() {
           date: frontMatter.date || new Date().toISOString(),
           tags: Array.isArray(frontMatter.tags) ? frontMatter.tags : [],
           featured: Boolean(frontMatter.featured),
-          links: frontMatter.links || { github: '' },
+          links: frontMatter.links || {},
         }
 
         return project
@@ -136,6 +140,9 @@ export default function ProjectsPage() {
   } catch (error) {
     console.error('Error reading projects directory:', error)
   }
+
+  // Sort projects by date, from newest to oldest
+  projects.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   if (projects.length === 0) {
     return (
@@ -154,14 +161,14 @@ export default function ProjectsPage() {
           <Card key={project.slug} className="overflow-hidden flex flex-col">
             <div className="relative h-48">
               <Image
-                src={project.image}
+                src={project.image || "/placeholder.svg"}
                 alt={project.title}
                 fill
                 className="object-cover"
               />
               <div className="absolute top-2 right-2 bg-background/80 backdrop-blur-sm rounded-full p-1">
                 <Image
-                  src={project.logo}
+                  src={project.logo || "/placeholder.svg"}
                   alt={`${project.title} logo`}
                   width={32}
                   height={32}
@@ -195,34 +202,6 @@ export default function ProjectsPage() {
                 })}
               </p>
             </CardContent>
-            <CardFooter className="flex gap-2">
-              {project.links.github ? (
-                <Button variant="outline" size="sm" className="flex-1" asChild>
-                  <a href={project.links.github} target="_blank" rel="noopener noreferrer">
-                    <Github className="mr-2 h-4 w-4" />
-                    GitHub
-                  </a>
-                </Button>
-              ) : (
-                <Button variant="outline" size="sm" className="flex-1" disabled>
-                  <Github className="mr-2 h-4 w-4" />
-                  No Repo
-                </Button>
-              )}
-              {project.links.live ? (
-                <Button size="sm" className="flex-1" asChild>
-                  <a href={project.links.live} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    Live Demo
-                  </a>
-                </Button>
-              ) : (
-                <Button size="sm" className="flex-1" disabled>
-                  <ExternalLink className="mr-2 h-4 w-4" />
-                  No Demo
-                </Button>
-              )}
-            </CardFooter>
           </Card>
         ))}
       </div>
