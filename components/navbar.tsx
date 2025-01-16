@@ -5,12 +5,12 @@ import { Github, Linkedin, MonitorSmartphone, Moon, Sun, Languages } from 'lucid
 import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes"
 // import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { useLanguage } from "@/contexts/LanguageContext"
+// import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslation } from "@/hooks/useTranslation"
 
 export function Navbar() {
   const { setTheme, theme } = useTheme()
-  const { language, setLanguage } = useLanguage()
+  // const { language, setLanguage } = useLanguage()
   const { t } = useTranslation()
 
   return (
